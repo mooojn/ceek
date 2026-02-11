@@ -36,25 +36,25 @@ const Partners = () => {
 
                     <div className="flex animate-scroll whitespace-nowrap">
                         {/* First Set of Logos */}
-                        <div className="flex items-center space-x-16 mx-8">
+                        <div className="flex items-center space-x-8 md:space-x-16 mx-4 md:mx-8">
                             {logos.map((logo) => (
-                                <div key={logo.id} className="text-3xl md:text-4xl font-bold text-black opacity-80 hover:opacity-100 transition-opacity cursor-default font-serif">
+                                <div key={logo.id} className="text-2xl md:text-4xl font-bold text-black opacity-80 hover:opacity-100 transition-opacity cursor-default font-serif">
                                     {logo.name}
                                 </div>
                             ))}
                         </div>
                         {/* Duplicate Set for Loop */}
-                        <div className="flex items-center space-x-16 mx-8">
+                        <div className="flex items-center space-x-8 md:space-x-16 mx-4 md:mx-8">
                             {logos.map((logo) => (
-                                <div key={`dup-${logo.id}`} className="text-3xl md:text-4xl font-bold text-black opacity-80 hover:opacity-100 transition-opacity cursor-default font-serif">
+                                <div key={`dup-${logo.id}`} className="text-2xl md:text-4xl font-bold text-black opacity-80 hover:opacity-100 transition-opacity cursor-default font-serif">
                                     {logo.name}
                                 </div>
                             ))}
                         </div>
                         {/* Triplicate Set for Loop to be safe on wide screens */}
-                        <div className="flex items-center space-x-16 mx-8">
+                        <div className="flex items-center space-x-8 md:space-x-16 mx-4 md:mx-8">
                             {logos.map((logo) => (
-                                <div key={`tri-${logo.id}`} className="text-3xl md:text-4xl font-bold text-black opacity-80 hover:opacity-100 transition-opacity cursor-default font-serif">
+                                <div key={`tri-${logo.id}`} className="text-2xl md:text-4xl font-bold text-black opacity-80 hover:opacity-100 transition-opacity cursor-default font-serif">
                                     {logo.name}
                                 </div>
                             ))}
