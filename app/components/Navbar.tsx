@@ -14,31 +14,32 @@ const Navbar = () => {
           <Link href="/">CEEK</Link>
         </div>
 
-        <div className="hidden md:flex items-center gap-8 text-[#333333] font-medium text-base">
-          <button 
-            onClick={() => setIsServicesOpen(true)}
-            className="relative group transition-colors hover:text-black cursor-pointer"
-          >
-            <span>Services</span>
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
-          </button>
-          <Link href="/sectors" className="relative group transition-colors hover:text-black">
-            <span>Sectors</span>
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link href="/locations" className="relative group transition-colors hover:text-black">
-            <span>Locations</span>
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link href="/case-studies" className="relative group transition-colors hover:text-black">
-            <span>Case Studies</span>
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-          <Link href="/about-us" className="relative group transition-colors hover:text-black">
-            <span>About Us</span>
-            <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
-          </Link>
-        </div>
+        <ul className="hidden md:flex items-center gap-8 text-[#333333] font-medium text-base list-none">
+          {[
+            { name: 'Services', action: () => setIsServicesOpen(true) },
+            // { name: 'Sectors', href: '/sectors' },
+            // { name: 'Locations', href: '/locations' },
+            { name: 'Case Studies', href: '/case-studies' },
+            { name: 'About Us', href: '/about-us' },
+          ].map((item) => (
+            <li key={item.name}>
+              {item.href ? (
+                <Link href={item.href} className="relative group transition-colors hover:text-black">
+                  <span>{item.name}</span>
+                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+                </Link>
+              ) : (
+                <button
+                  onClick={item.action}
+                  className="relative group transition-colors hover:text-black cursor-pointer"
+                >
+                  <span>{item.name}</span>
+                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+                </button>
+              )}
+            </li>
+          ))}
+        </ul>
 
         <div>
           <Link
