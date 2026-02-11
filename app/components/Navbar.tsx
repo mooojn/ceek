@@ -8,11 +8,26 @@ const Navbar = () => {
       </div>
 
       <div className="hidden md:flex items-center gap-8 text-[#333333] font-medium text-base">
-        <Link href="/services" className="hover:text-black hover:underline hover:decoration-black hover:decoration-2 hover:underline-offset-4 transition-all">Services</Link>
-        <Link href="/sectors" className="hover:text-black hover:underline hover:decoration-black hover:decoration-2 hover:underline-offset-4 transition-all">Sectors</Link>
-        <Link href="/locations" className="hover:text-black hover:underline hover:decoration-black hover:decoration-2 hover:underline-offset-4 transition-all">Locations</Link>
-        <Link href="/case-studies" className="hover:text-black hover:underline hover:decoration-black hover:decoration-2 hover:underline-offset-4 transition-all">Case Studies</Link>
-        <Link href="/about-us" className="hover:text-black hover:underline hover:decoration-black hover:decoration-2 hover:underline-offset-4 transition-all">About Us</Link>
+        <Link href="/services" className="relative group transition-colors hover:text-black">
+          <span>Services</span>
+          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+        </Link>
+        <Link href="/sectors" className="relative group transition-colors hover:text-black">
+          <span>Sectors</span>
+          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+        </Link>
+        <Link href="/locations" className="relative group transition-colors hover:text-black">
+          <span>Locations</span>
+          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+        </Link>
+        <Link href="/case-studies" className="relative group transition-colors hover:text-black">
+          <span>Case Studies</span>
+          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+        </Link>
+        <Link href="/about-us" className="relative group transition-colors hover:text-black">
+          <span>About Us</span>
+          <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+        </Link>
       </div>
 
       <div>

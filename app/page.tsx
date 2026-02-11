@@ -14,7 +14,7 @@ export default function Home() {
       <Navbar />
       <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-20">
         <div className="max-w-4xl w-full text-center">
-          <h1 className="text-5xl md:text-7xl font-light tracking-tight mb-12 leading-relaxed">
+          <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter mb-12 leading-[1.1]">
             The unfair advantage to the best brands in each sector.
           </h1>
           <button className="bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:scale-105 transition-transform duration-300">
