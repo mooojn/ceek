@@ -4,6 +4,7 @@ import Services from "./components/Services";
 import CaseStudies from "./components/CaseStudies";
 import Philosophy from "./components/Philosophy";
 import Footer from "./components/Footer";
+import CTA from "./components/CTA";
 
 export default function Home() {
   return (
