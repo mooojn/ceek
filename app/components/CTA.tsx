@@ -3,7 +3,15 @@
 import React from 'react';
 import Link from 'next/link';
 
-const CTA = () => {
+interface CTAProps {
+    title?: string;
+    text?: string;
+}
+
+const CTA = ({ 
+    title = "Start Working With CEEK", 
+    text = "If you are ready to scale your digital marketing efforts and build your brand, get in touch with us at CEEK to align on business goals."
+}: CTAProps) => {
     return (
         <section className="bg-[#F5F5F5] py-20 border-t border-gray-200">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
@@ -12,10 +20,10 @@ const CTA = () => {
                     {/* Left Content */}
                     <div className="max-w-3xl">
                         <h2 className="text-5xl md:text-6xl lg:text-7xl font-bold text-black uppercase tracking-tight leading-tight mb-6">
-                            Start Working With CEEK
+                            {title}
                         </h2>
                         <p className="text-lg md:text-xl text-[#333333] leading-relaxed max-w-2xl">
-                            If you are ready to scale your digital marketing efforts and build your brand, get in touch with us at CEEK to align on business goals.
+                            {text}
                         </p>
                     </div>
 
