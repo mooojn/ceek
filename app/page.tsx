@@ -3,6 +3,7 @@ import Partners from "./components/Partners";
 import Services from "./components/Services";
 import CaseStudies from "./components/CaseStudies";
 import Philosophy from "./components/Philosophy";
+import Footer from "./components/Footer";
 
 export default function Home() {
   return (
@@ -22,6 +23,7 @@ export default function Home() {
       <Services />
       <CaseStudies />
       <Philosophy />
+      <Footer />
     </main>
   );
 }
