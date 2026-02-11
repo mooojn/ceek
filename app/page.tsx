@@ -1,6 +1,7 @@
 import Navbar from "./components/Navbar";
 import Partners from "./components/Partners";
 import Services from "./components/Services";
+import WhoAreCeek from "./components/WhoAreCeek";
 import CaseStudies from "./components/CaseStudies";
 import WorkTogether from "./components/WorkTogether";
 import Philosophy from "./components/Philosophy";
@@ -23,6 +24,7 @@ export default function Home() {
       </section>
       <Partners />
       <Services />
+      <WhoAreCeek />
       <CaseStudies />
       <WorkTogether />
       <Philosophy />
