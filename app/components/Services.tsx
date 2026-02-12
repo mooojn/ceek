@@ -87,9 +87,9 @@ const Services = ({
     };
 
     const isLightBg = backgroundColor.includes('white') || backgroundColor.includes('gray-100') || backgroundColor.includes('neutral-100');
-    const dividerColor = isLightBg ? 'border-gray-300' : 'border-gray-800';
+    const dividerColor = 'border-white';
     const descriptionColor = isLightBg ? 'text-gray-600' : 'text-gray-300';
-    const inactiveTitleColor = isLightBg ? 'text-gray-400' : 'text-gray-500';
+    const inactiveTitleColor = 'text-white';
 
     return (
         <section className={`${backgroundColor} ${textColor} py-20 px-6 md:px-12 lg:px-20`}>
@@ -97,7 +97,7 @@ const Services = ({
                 {/* Header */}
                 <div className="mb-12">
                     <h2 className={`text-xl md:text-2xl font-medium ${titleColor} mb-6`}>Digital Marketing Services</h2>
-                    <hr className={`${isLightBg ? 'border-gray-300' : 'border-gray-700'} opacity-50`} />
+                    <hr className={`${isLightBg ? 'border-gray-300' : 'border-white/30'} opacity-50`} />
                 </div>
 
                 {/* Accordion List */}
