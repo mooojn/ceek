@@ -11,9 +11,8 @@ const Footer = () => {
             <div className="bg-[#1a1a1a] text-white py-20 px-6 md:px-12 lg:px-20 border-t border-gray-800">
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
 
-                    {/* Column 1 - Vertical Logo (Takes up ~2 cols on LG) */}
-                    {/* Column 1 - Logo (Takes up ~2 cols on LG) */}
-                    <div className="lg:col-span-2 flex flex-col justify-between h-full min-h-[200px]">
+                    {/* Column 1 - Logo (Takes up ~3 cols on LG) */}
+                    <div className="lg:col-span-3 flex flex-col justify-between h-full min-h-[200px]">
                         <div className="hidden lg:block">
                             <h2 className="text-4xl font-bold tracking-tighter uppercase whitespace-nowrap opacity-20 hover:opacity-100 transition-opacity cursor-default">
                                 Marketo360
@@ -25,14 +24,12 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Column 2 - ABOUT (Takes up ~3 cols on LG) */}
-                    <div className="lg:col-span-3">
+                    {/* Column 2 - ABOUT (Takes up ~2 cols on LG) */}
+                    <div className="lg:col-span-2">
                         <h3 className="text-xl font-bold uppercase mb-6 tracking-wide">About</h3>
                         <ul className="space-y-4 mb-10">
-                            <li><Link href="/reviews" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
+                            <li><Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
                             <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
-                            {/* <li><Link href="/careers" className="text-gray-400 hover:text-white transition-colors">Careers</Link></li> */}
-                            {/* <li><Link href="/sitemap" className="text-gray-400 hover:text-white transition-colors">Sitemap</Link></li> */}
                         </ul>
 
                         <div className="flex space-x-4">
@@ -48,8 +45,8 @@ const Footer = () => {
                         </div>
                     </div>
 
-                    {/* Column 3 - LOCATION (Takes up ~3 cols on LG) */}
-                    <div className="lg:col-span-3">
+                    {/* Column 3 - SERVICES (Takes up ~4 cols on LG) */}
+                    <div className="lg:col-span-4">
                         <h3 className="text-xl font-bold uppercase mb-6 tracking-wide">Services</h3>
                         <ul className="space-y-4">
                             <li>
@@ -100,12 +97,28 @@ const Footer = () => {
                         </ul>
                     </div>
 
-                    {/* Column 4 - CONSULTANCY (Takes up ~4 cols on LG) */}
-                    <div className="lg:col-span-4">
+                    {/* Column 4 - STAY CONNECTED (Takes up ~3 cols on LG) */}
+                    <div className="lg:col-span-3">
                         <h3 className="text-xl font-bold uppercase mb-6 tracking-wide">Stay Connected</h3>
                         <ul className="space-y-4">
-                            <li><Link href="/services/ai-search" className="text-gray-400 hover:text-white transition-colors">+92 4200000</Link></li>
-                            <li><Link href="/services/ecommerce-seo" className="text-gray-400 hover:text-white transition-colors"> sales@marketo360.gmail.com</Link></li>
+                            <li>
+                                <a
+                                    href="https://wa.me/924200000"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="text-gray-400 hover:text-white transition-colors block"
+                                >
+                                    +92 4200000
+                                </a>
+                            </li>
+                            <li>
+                                <a
+                                    href="mailto:sales@marketo360.gmail.com"
+                                    className="text-gray-400 hover:text-white transition-colors block break-all"
+                                >
+                                    sales@marketo360.gmail.com
+                                </a>
+                            </li>
                         </ul>
                     </div>
                 </div>
