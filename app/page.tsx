@@ -10,14 +10,14 @@ import CTA from "./components/CTA";
 
 export default function Home() {
   return (
-    <main className="flex flex-col bg-[#1a1a1a] text-white">
+    <main className="flex flex-col bg-[#211F22] text-white">
       <Navbar />
-      <section className="min-h-screen flex flex-col items-center justify-center px-6 pt-20">
-        <div className="max-w-4xl w-full text-center">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl font-light tracking-tighter mb-12 leading-[1.1]">
+      <section className="bg-[#211F22] min-h-screen flex items-center justify-center px-6 pt-32 pb-20">
+        <div className="max-w-xl mx-auto mt-10">
+          <h1 className="text-white text-5xl md:text-6xl lg:text-7xl font-extralight leading-[1] mb-10 tracking-tight text-left">
             The unfair advantage to the best brands in each sector.
           </h1>
-          <button className="bg-white text-black px-8 py-4 rounded-full font-medium text-lg hover:scale-105 transition-transform duration-300">
+          <button className="bg-white text-black px-10 py-4 rounded-full text-lg font-medium hover:bg-gray-100 transition-colors shadow-lg">
             Enquire Now
           </button>
         </div>
