@@ -27,8 +27,8 @@ export default function Home() {
       <WhoAreCeek />
       <CaseStudies />
       <WorkTogether />
-      <Philosophy />
-      <CTA />
+      {/* <Philosophy /> */}
+      {/* <CTA /> */}
       <Footer />
     </main>
   );

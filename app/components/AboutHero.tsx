@@ -7,7 +7,7 @@ const AboutHero = () => {
         {/* Top Heading */}
         <div className="mb-8">
           <h1 className="text-4xl md:text-5xl font-bold tracking-tight uppercase">
-            About CEEK
+            About Marketo360
           </h1>
         </div>
 
@@ -19,17 +19,17 @@ const AboutHero = () => {
           {/* Left Column: Sub-heading */}
           <div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-              The CEEK Team
+              The Marketo360 Team
             </h2>
           </div>
 
           {/* Right Column: Text Content */}
           <div className="space-y-8 text-lg md:text-xl text-gray-300 font-light leading-relaxed">
             <p>
-              CEEK Marketing is an omnichannel digital marketing agency, dedicated to assisting brands in amplifying their digital presence. CEEK has a passion for start-ups & helping big companies act like start-ups, with an outsourced marketing solution for businesses of all sizes.
+              Marketo360 Marketing is an omnichannel digital marketing agency, dedicated to assisting brands in amplifying their digital presence. Marketo360 has a passion for start-ups & helping big companies act like start-ups, with an outsourced marketing solution for businesses of all sizes.
             </p>
             <p>
-              CEEK entered the digital marketing space as hospitality experts, initially collaborating with leading establishments in the restaurant and hotel sectors throughout the UK and Europe. We still love hospitality marketing, but have since broadened our industry expertise, now working with the “Best Brands In Each Sector”.
+              Marketo360 entered the digital marketing space as hospitality experts, initially collaborating with leading establishments in the restaurant and hotel sectors throughout the UK and Europe. We still love hospitality marketing, but have since broadened our industry expertise, now working with the “Best Brands In Each Sector”.
             </p>
           </div>
         </div>

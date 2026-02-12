@@ -12,26 +12,23 @@ const WhoAreCeek = () => {
                     {/* Left Column */}
                     <div>
                         <p className="text-sm md:text-base text-[#333333] mb-4 font-medium tracking-wide">
-                            Digital Marketing Agency In London
+                            Digital Marketing Agency
                         </p>
                         <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-black leading-tight tracking-tight">
-                            Who Are CEEK
+                            Who Are Marketo360
                         </h2>
                     </div>
 
                     {/* Right Column */}
                     <div className="space-y-8">
                         <p className="text-lg md:text-xl text-[#2a2a2a] leading-relaxed">
-                            Our unique approach is deliberate, as a true extension of your business we partner to ensure growth through digital expertise. CEEK is headquartered in London but service clients across the globe.
+                            At Marketo360, we don’t just market brands — we build digital growth engines. With over 10 years of cross-industry experience, we’ve helped businesses worldwide turn ideas into impact and strategy into measurable success.
                         </p>
                         <p className="text-lg md:text-xl text-[#2a2a2a] leading-relaxed">
-                            Founded in 2016, CEEK has always been fixated on delivering the best marketing strategy and execution across various sectors and territories. The CEEK head office in London is located in Soho, the heart of London's marketing and creative scene.
+                            From education institutions to global enterprises, our team understands what it takes to win in competitive markets. Every campaign is powered by data, creativity, and performance optimization — ensuring maximum visibility, engagement, and return on investment.
                         </p>
                         <p className="text-lg md:text-xl text-[#2a2a2a] leading-relaxed">
-                            CEEK boasts clients of all sizes, ranging from large multi-national corporations, to disruptive start-ups. Our in-house Marketing Strategy team creates tailored strategies which are proven to increase the profitability of clients.
-                        </p>
-                        <p className="text-lg md:text-xl text-[#2a2a2a] leading-relaxed">
-                            The award-winning strategy delivery is coupled with best-in-class marketing execution teams across areas such as <strong>Social Media</strong>, <strong>Search Engine Optimisation</strong>, <strong>Paid Acquisition</strong>, <strong>Influencer Marketing</strong> and various forms of <strong>Digital PR</strong>.
+                            Our mission is simple: deliver results, exceed expectations, and create long-term partnerships built on trust and client satisfaction. With Marketo360, growth isn’t optional — it’s engineered.
                         </p>
 
                         <div className="pt-8">
@@ -39,7 +36,7 @@ const WhoAreCeek = () => {
                                 href="/about-us"
                                 className="inline-block bg-black text-white rounded-full px-10 py-5 font-medium text-lg hover:scale-105 transition-transform duration-300"
                             >
-                                About CEEK
+                                About Marketo360
                             </Link>
                         </div>
                     </div>

@@ -8,9 +8,9 @@ interface CTAProps {
     text?: string;
 }
 
-const CTA = ({ 
-    title = "Start Working With CEEK", 
-    text = "If you are ready to scale your digital marketing efforts and build your brand, get in touch with us at CEEK to align on business goals."
+const CTA = ({
+    title = "Start Working With Marketo360",
+    text = "If you are ready to scale your digital marketing efforts and build your brand, get in touch with us at Marketo360 to align on business goals."
 }: CTAProps) => {
     return (
         <section className="bg-[#F5F5F5] py-20 border-t border-gray-200">

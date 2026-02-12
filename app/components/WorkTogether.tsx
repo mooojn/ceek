@@ -12,12 +12,10 @@ const WorkTogether = () => {
                     {/* Left Content */}
                     <div className="flex-1 max-w-3xl">
                         <h2 className="text-5xl md:text-6xl font-bold text-black uppercase leading-tight tracking-tight">
-                            LET'S WORK TOGETHER
+                            LET’S MAKE IT HAPPEN
                         </h2>
                         <p className="mt-6 text-lg md:text-xl text-[#333333] leading-relaxed max-w-2xl">
-                            With CEEK, you will unlock the full potential of digital marketing
-                            for your business. Connect with us to explore how CEEK's bespoke
-                            marketing strategies can boost your brand's growth and revenue.
+                            Marketo360 helps you grow faster and smarter in today’s digital world. Let’s build something powerful together.
                         </p>
                     </div>
 

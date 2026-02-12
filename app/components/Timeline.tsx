@@ -3,17 +3,17 @@ import React from 'react';
 const timelineEvents = [
   {
     year: "2016",
-    description: "CEEK was launched, originally as a hospitality marketing agency in London.",
+    description: "Marketo360 was launched, originally as a hospitality marketing agency in London.",
     id: 1
   },
   {
     year: "2017",
-    description: "The first CEEK office was opened in London Victoria. CEEK adds first e-commerce clients and their first international projects.",
+    description: "The first Marketo360 office was opened in London Victoria. Marketo360 adds first e-commerce clients and their first international projects.",
     id: 2
   },
   {
     year: "2018",
-    description: "CEEK works with brands such as Subway, Lavazza & Disney across 4 continents and grows their digital offering across multiple services.",
+    description: "Marketo360 works with brands such as Subway, Lavazza & Disney across 4 continents and grows their digital offering across multiple services.",
     id: 3
   }
 ];
@@ -47,7 +47,7 @@ const Timeline = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-16 md:mb-24">
           <h2 className="text-4xl md:text-5xl font-bold uppercase tracking-tight">
-            The CEEK Journey
+            The Marketo360 Journey
           </h2>
         </div>
 

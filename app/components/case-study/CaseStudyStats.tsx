@@ -8,7 +8,7 @@ const CaseStudyStats = () => {
                 {/* Heading */}
                 <div className="lg:w-1/4">
                     <h2 className="text-3xl md:text-4xl font-bold text-black tracking-tight">
-                        CEEK's Impact
+                        Marketo360's Impact
                     </h2>
                 </div>
 

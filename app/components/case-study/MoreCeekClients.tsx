@@ -15,7 +15,7 @@ const MoreCeekClients = () => {
             <div className="max-w-7xl mx-auto">
                 <div className="flex justify-between items-end mb-12">
                     <h2 className="text-4xl md:text-5xl font-bold text-black uppercase tracking-tight">
-                        MORE CEEK CLIENTS
+                        MORE Marketo360 CLIENTS
                     </h2>
                 </div>
 

@@ -6,19 +6,19 @@ const philosophyItems = [
     {
         id: 1,
         title: "Strategy",
-        description: "CEEK's meticulously created strategies for clients are tailored to align with your brand's core values. We believe a robust strategy forms the backbone of any successful marketing venture. The CEEK team creates bespoke strategies driven by data and market trends, focusing on scalable and sustainable solutions to create a tangible pathway to success.",
+        description: "Marketo360's meticulously created strategies for clients are tailored to align with your brand's core values. We believe a robust strategy forms the backbone of any successful marketing venture. The Marketo360 team creates bespoke strategies driven by data and market trends, focusing on scalable and sustainable solutions to create a tangible pathway to success.",
         position: "left"
     },
     {
         id: 2,
         title: "Execution",
-        description: "Precise execution is paramount to the CEEK philosophy. We operate at an extremely high level to convert strategic planning into tangible results. The CEEK execution process is designed to ensure you are getting the maximum return from your investment, increasing your brand's visibility across the largest digital marketing channels in the world.",
+        description: "Precise execution is paramount to the Marketo360 philosophy. We operate at an extremely high level to convert strategic planning into tangible results. The Marketo360 execution process is designed to ensure you are getting the maximum return from your investment, increasing your brand's visibility across the largest digital marketing channels in the world.",
         position: "right"
     },
     {
         id: 3,
         title: "Growth",
-        description: "The entire CEEK team is dedicated to not just meeting, but exceeding your expectations. CEEK's bespoke growth strategies are designed to focus on expansion beyond expectation. We use real-time data and feedback to constantly adjust to evolving markets, helping you achieve new heights of success and visibility across multiple platforms.",
+        description: "The entire Marketo360 team is dedicated to not just meeting, but exceeding your expectations. Marketo360's bespoke growth strategies are designed to focus on expansion beyond expectation. We use real-time data and feedback to constantly adjust to evolving markets, helping you achieve new heights of success and visibility across multiple platforms.",
         position: "left"
     }
 ];
@@ -29,7 +29,7 @@ const Philosophy = () => {
             <div className="max-w-7xl mx-auto">
                 {/* Header */}
                 <div className="mb-20">
-                    <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">The CEEK Philosophy</h2>
+                    <h2 className="text-5xl md:text-6xl font-bold text-white mb-6">The Marketo360 Philosophy</h2>
                     <hr className="border-gray-800 opacity-50" />
                 </div>
 

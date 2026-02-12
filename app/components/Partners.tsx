@@ -18,12 +18,12 @@ const Partners = () => {
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-20">
                     <div className="flex flex-col justify-center">
                         <h2 className="text-5xl md:text-7xl font-bold text-black tracking-tight leading-tight">
-                            Working With The Best
+                            Where Top Brands Choose to Grow
                         </h2>
                     </div>
                     <div className="flex flex-col justify-center items-end text-right">
                         <p className="text-lg md:text-xl text-gray-800 leading-relaxed max-w-lg">
-                            CEEK partners with brands to amplify their story to targeted audiences across multiple platforms. Using CEEK's proprietary OCMX methodology, we create marketing strategies with best-in-class execution and reporting to maximise ROI.
+                            At Marketo360, we don’t just market, we scale brands. Powered by smart strategy and performance insights, we turn powerful ideas into multi-platform campaigns that connect with the right audience and drive real results
                         </p>
                     </div>
                 </div>

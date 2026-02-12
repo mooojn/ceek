@@ -16,50 +16,56 @@ const services: Service[] = [
     {
         id: 1,
         title: "STRATEGY",
-        description: "Our strategic workshops are a core element of the CEEK methodology. We deep dive into your brand, your audience and your goals to create a roadmap for success.",
+        description: "We transform your business goals into a clear, data-driven digital roadmap designed for measurable growth. Our strategic planning combines market insights, audience research, and performance analytics to ensure every action delivers impact. With the right strategy in place, your brand doesn’t just compete — it leads.",
         link: "/services/strategy"
     },
     {
         id: 2,
         title: "SOCIAL MEDIA",
-        description: "We are experts in creating social first content that resonates with your audience. We manage your channels, engage with your community and grow your following.",
+        description: "We build powerful social media presences that spark engagement and create meaningful connections with your audience. Through creative content and smart targeting, we turn attention into interaction and interaction into loyal customers. Your brand stays relevant, visible, and influential every single day.",
         link: "/services/social-media"
     },
     {
         id: 3,
         title: "SEO",
-        description: "Our technical SEO audits and content strategies ensure your brand is visible to the right people at the right time. We focus on long term sustainable growth.",
+        description: "Our SEO strategies position your brand where it matters most — at the top of search results. By optimizing your website structure, content, and authority, we attract high-intent traffic that converts. The result is sustainable, long-term growth driven by organic visibility.",
         link: "/services/seo"
     },
     {
         id: 4,
         title: "PAID MEDIA",
-        description: "The CEEK paid media team is constantly conducting algorithmic testing to ensure your campaigns are ready to dominate your competition. CEEK paid campaigns are bespoke, ensuring we are optimising to create maximum ROI for your business swiftly and effectively.",
+        description: "We design and manage high-performance paid campaigns that maximize return on investment. From Google Ads to Meta platforms, every campaign is strategically optimized for reach, engagement, and conversions. Every click is measured, refined, and turned into real business growth.",
         link: "/services/paid-media"
     },
     {
         id: 5,
         title: "INFLUENCER",
-        description: "We have a vast network of influencers and creators. We manage the entire process from selection and briefing to content creation and reporting.",
+        description: "We connect your brand with credible influencers who genuinely resonate with your target audience. Through authentic collaborations, we amplify your message and build trust at scale. Influence becomes more than visibility — it becomes measurable impact.",
         link: "/services/influencer"
     },
     {
         id: 6,
         title: "EMAIL & CRM",
-        description: "We design and build email campaigns that convert. From automated flows to weekly newsletters, we ensure your database is engaged and profitable.",
+        description: "We turn prospects into loyal customers through intelligent email marketing and CRM automation. Personalized communication, behavior-based targeting, and data insights ensure every message delivers value. Stronger relationships mean higher retention and consistent revenue growth.",
         link: "/services/email-crm"
     },
     {
         id: 7,
         title: "CONTENT CREATION",
-        description: "Our in-house production team creates high quality photography and video content. We handle everything from concept to post production.",
+        description: "We create compelling content that captures attention and drives action. From visuals to copy, every piece is crafted to reflect your brand voice and inspire engagement. Quality storytelling builds authority, trust, and lasting impressions.",
         link: "/services/content-creation"
     },
     {
         id: 8,
         title: "DIGITAL PR",
-        description: "We build relationships with journalists and publications to get your brand featured in top tier media outlets. We focus on quality placements that drive authority.",
+        description: "We elevate your brand reputation through strategic digital PR and media placements. By positioning your business on trusted platforms, we strengthen credibility and expand your reach. Visibility backed by authority builds lasting brand power.",
         link: "/services/digital-pr"
+    },
+    {
+        id: 9,
+        title: "GRAPHIC DESIGN",
+        description: "We design visuals that communicate clearly and confidently. Every creative is built to reflect your brand’s identity and connect with your audience. Simple. Strategic. Memorable.",
+        link: "/services/graphic-design"
     }
 ];
 
@@ -69,8 +75,8 @@ interface ServicesProps {
     titleColor?: string;
 }
 
-const Services = ({ 
-    backgroundColor = "bg-[#1a1a1a]", 
+const Services = ({
+    backgroundColor = "bg-[#1a1a1a]",
     textColor = "text-white",
     titleColor = "text-white"
 }: ServicesProps) => {

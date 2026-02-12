@@ -17,13 +17,13 @@ const ServicesHero = () => {
           <div className="lg:w-1/2">
             <div className="text-gray-400 text-sm md:text-base mb-4">London Marketing Consultancy</div>
             <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight">
-              Digital Marketing at<br />CEEK
+              Digital Marketing at<br />Marketo360
             </h2>
           </div>
 
           <div className="lg:w-1/2 flex flex-col items-start">
             <p className="text-lg text-gray-300 leading-relaxed mb-8">
-              CEEK has brought together an experienced team with different skill sets, covering aspects of digital marketing services – offering a complete package to clients with a tailored approach to maximise the return on investment of every campaign.
+              Marketo360 has brought together an experienced team with different skill sets, covering aspects of digital marketing services – offering a complete package to clients with a tailored approach to maximise the return on investment of every campaign.
             </p>
             <p className="text-lg text-gray-300 leading-relaxed mb-8">
               In an industry which is constantly changing at a fast pace, our team stays updated with all trends across their various specialities, allowing us to deliver the best results for our clients.

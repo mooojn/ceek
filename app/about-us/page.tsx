@@ -17,8 +17,8 @@ export default function AboutUs() {
         <HowToWorkWithCeek />
       </div>
       <CTA 
-        title="BECOME A CEEK CLIENT"
-        text="CEEK offer bespoke digital marketing services across multiple sectors and industries. Contact us today to align on business goals and scale your brand’s digital presence and revenue."
+        title="BECOME A Marketo360 CLIENT"
+        text="Marketo360 offer bespoke digital marketing services across multiple sectors and industries. Contact us today to align on business goals and scale your brand’s digital presence and revenue."
       />
       <Footer />
     </main>
