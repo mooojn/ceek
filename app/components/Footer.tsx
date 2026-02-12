@@ -9,40 +9,28 @@ const Footer = () => {
         <footer>
             {/* Top Section - Dark */}
             <div className="bg-[#1a1a1a] text-white py-20 px-6 md:px-12 lg:px-20 border-t border-gray-800">
-                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
+                <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 md:gap-12 lg:gap-8">
 
                     {/* Column 1 - Logo (Takes up ~3 cols on LG) */}
-                    <div className="lg:col-span-3 flex flex-col justify-between h-full min-h-[200px]">
+                    <div className="lg:col-span-3 flex flex-col justify-between h-full lg:min-h-[200px]">
                         <div className="hidden lg:block">
                             <h2 className="text-4xl font-bold tracking-tighter uppercase whitespace-nowrap opacity-20 hover:opacity-100 transition-opacity cursor-default">
                                 Marketo360
                             </h2>
                         </div>
                         {/* Mobile Logo */}
-                        <div className="lg:hidden mb-8">
-                            <h2 className="text-6xl font-bold tracking-tighter uppercase">Marketo360</h2>
+                        <div className="lg:hidden mb-0">
+                            <h2 className="text-3xl font-bold tracking-tighter uppercase">Marketo360</h2>
                         </div>
                     </div>
 
                     {/* Column 2 - ABOUT (Takes up ~2 cols on LG) */}
                     <div className="lg:col-span-2">
                         <h3 className="text-xl font-bold uppercase mb-6 tracking-wide">About</h3>
-                        <ul className="space-y-4 mb-10">
+                        <ul className="space-y-4">
                             <li><Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
                             <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
                         </ul>
-
-                        <div className="flex space-x-4">
-                            <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 group">
-                                <Instagram size={20} />
-                            </a>
-                            <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 group">
-                                <Linkedin size={20} />
-                            </a>
-                            <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 group">
-                                <Twitter size={20} />
-                            </a>
-                        </div>
                     </div>
 
                     {/* Column 3 - SERVICES (Takes up ~4 cols on LG) */}
@@ -100,7 +88,7 @@ const Footer = () => {
                     {/* Column 4 - STAY CONNECTED (Takes up ~3 cols on LG) */}
                     <div className="lg:col-span-3">
                         <h3 className="text-xl font-bold uppercase mb-6 tracking-wide">Stay Connected</h3>
-                        <ul className="space-y-4">
+                        <ul className="space-y-4 mb-8">
                             <li>
                                 <a
                                     href="https://wa.me/924200000"
@@ -120,6 +108,18 @@ const Footer = () => {
                                 </a>
                             </li>
                         </ul>
+
+                        <div className="flex space-x-4">
+                            <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 group">
+                                <Instagram size={20} />
+                            </a>
+                            <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 group">
+                                <Linkedin size={20} />
+                            </a>
+                            <a href="#" className="bg-white/10 p-3 rounded-full hover:bg-white hover:text-black transition-all duration-300 group">
+                                <Twitter size={20} />
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
