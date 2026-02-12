@@ -43,7 +43,7 @@ const Navbar = () => {
 
         <div>
           <Link
-            href="/contact"
+            href="/get-in-touch"
             className="bg-black text-white px-6 py-3 rounded-full font-medium hover:opacity-80 transition-opacity"
           >
             Get in touch
