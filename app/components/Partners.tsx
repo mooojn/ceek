@@ -21,7 +21,7 @@ const Partners = () => {
                             Where Top Brands Choose to Grow
                         </h2>
                     </div>
-                    <div className="flex flex-col justify-center items-end text-right">
+                    <div className="flex flex-col justify-center items-start text-left md:items-end md:text-right">
                         <p className="text-lg md:text-xl text-gray-800 leading-relaxed max-w-lg">
                             At Marketo360, we don’t just market, we scale brands. Powered by smart strategy and performance insights, we turn powerful ideas into multi-platform campaigns that connect with the right audience and drive real results
                         </p>
