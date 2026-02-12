@@ -12,15 +12,16 @@ const Footer = () => {
                 <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8">
 
                     {/* Column 1 - Vertical Logo (Takes up ~2 cols on LG) */}
+                    {/* Column 1 - Logo (Takes up ~2 cols on LG) */}
                     <div className="lg:col-span-2 flex flex-col justify-between h-full min-h-[200px]">
-                        <div className="hidden lg:block transform -rotate-90 origin-top-left translate-y-full mt-20">
-                            <h2 className="text-7xl font-bold tracking-tighter uppercase whitespace-nowrap opacity-20 hover:opacity-100 transition-opacity cursor-default">
+                        <div className="hidden lg:block">
+                            <h2 className="text-4xl font-bold tracking-tighter uppercase whitespace-nowrap opacity-20 hover:opacity-100 transition-opacity cursor-default">
                                 Marketo360
                             </h2>
                         </div>
                         {/* Mobile Logo */}
                         <div className="lg:hidden mb-8">
-                            <h2 className="text-5xl font-bold tracking-tighter uppercase">Marketo360</h2>
+                            <h2 className="text-6xl font-bold tracking-tighter uppercase">Marketo360</h2>
                         </div>
                     </div>
 
@@ -28,11 +29,10 @@ const Footer = () => {
                     <div className="lg:col-span-3">
                         <h3 className="text-xl font-bold uppercase mb-6 tracking-wide">About</h3>
                         <ul className="space-y-4 mb-10">
-                            <li><Link href="/reviews" className="text-gray-400 hover:text-white transition-colors">Reviews</Link></li>
-                            <li><Link href="/blog" className="text-gray-400 hover:text-white transition-colors">Blog</Link></li>
+                            <li><Link href="/reviews" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
                             <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
-                            <li><Link href="/careers" className="text-gray-400 hover:text-white transition-colors">Careers</Link></li>
-                            <li><Link href="/sitemap" className="text-gray-400 hover:text-white transition-colors">Sitemap</Link></li>
+                            {/* <li><Link href="/careers" className="text-gray-400 hover:text-white transition-colors">Careers</Link></li> */}
+                            {/* <li><Link href="/sitemap" className="text-gray-400 hover:text-white transition-colors">Sitemap</Link></li> */}
                         </ul>
 
                         <div className="flex space-x-4">
@@ -50,21 +50,51 @@ const Footer = () => {
 
                     {/* Column 3 - LOCATION (Takes up ~3 cols on LG) */}
                     <div className="lg:col-span-3">
-                        <h3 className="text-xl font-bold uppercase mb-6 tracking-wide">Location</h3>
+                        <h3 className="text-xl font-bold uppercase mb-6 tracking-wide">Services</h3>
                         <ul className="space-y-4">
                             <li>
-                                <Link href="/locations/london" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                                    London <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                <Link href="/services/strategy" className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                    Strategy <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/locations/brighton" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                                    Brighton <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                <Link href="/services/social-media" className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                    Social Media <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
                                 </Link>
                             </li>
                             <li>
-                                <Link href="/locations/manchester" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                                    Manchester <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                <Link href="/services/seo" className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                    SEO <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services/paid-media" className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                    Paid Media <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services/influencer" className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                    Influencer <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services/email-crm" className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                    Email & CRM  <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services/content-creative" className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                    Content & Creative <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services/digital-pr" className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                    Digital PR <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                </Link>
+                            </li>
+                            <li>
+                                <Link href="/services/graphic-design" className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                    Graphic Design <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
                                 </Link>
                             </li>
                         </ul>
@@ -72,14 +102,10 @@ const Footer = () => {
 
                     {/* Column 4 - CONSULTANCY (Takes up ~4 cols on LG) */}
                     <div className="lg:col-span-4">
-                        <h3 className="text-xl font-bold uppercase mb-6 tracking-wide">Consultancy</h3>
+                        <h3 className="text-xl font-bold uppercase mb-6 tracking-wide">Stay Connected</h3>
                         <ul className="space-y-4">
-                            <li><Link href="/services/ai-search" className="text-gray-400 hover:text-white transition-colors">AI Search Agency</Link></li>
-                            <li><Link href="/services/ecommerce-seo" className="text-gray-400 hover:text-white transition-colors">Ecommerce SEO Agency</Link></li>
-                            <li><Link href="/services/seo-audit" className="text-gray-400 hover:text-white transition-colors">SEO Audit</Link></li>
-                            <li><Link href="/services/outsourced-marketing" className="text-gray-400 hover:text-white transition-colors">Outsourced Digital Marketing</Link></li>
-                            <li><Link href="/services/omni-channel" className="text-gray-400 hover:text-white transition-colors">Omni-Channel Marketing Execution</Link></li>
-                            <li><Link href="/services/tiktok-marketing" className="text-gray-400 hover:text-white transition-colors">TikTok Marketing Agency</Link></li>
+                            <li><Link href="/services/ai-search" className="text-gray-400 hover:text-white transition-colors">+92 4200000</Link></li>
+                            <li><Link href="/services/ecommerce-seo" className="text-gray-400 hover:text-white transition-colors"> sales@marketo360.gmail.com</Link></li>
                         </ul>
                     </div>
                 </div>
