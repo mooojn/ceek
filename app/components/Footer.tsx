@@ -3,6 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Instagram, Linkedin, Twitter, ArrowRight } from 'lucide-react';
+import { services } from '@/app/data/services';
 
 const Footer = () => {
     return (
@@ -37,51 +38,13 @@ const Footer = () => {
                     <div className="lg:col-span-4">
                         <h3 className="text-xl font-bold uppercase mb-6 tracking-wide">Services</h3>
                         <ul className="space-y-4">
-                            <li>
-                                <Link href="/services/strategy" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                                    Strategy <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/social-media" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                                    Social Media <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/seo" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                                    SEO <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/paid-media" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                                    Paid Media <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/influencer" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                                    Influencer <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/email-crm" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                                    Email & CRM  <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/content-creative" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                                    Content & Creative <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/digital-pr" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                                    Digital PR <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
-                                </Link>
-                            </li>
-                            <li>
-                                <Link href="/services/graphic-design" className="text-gray-400 hover:text-white transition-colors flex items-center group">
-                                    Graphic Design <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
-                                </Link>
-                            </li>
+                            {services.map((service) => (
+                                <li key={service.id}>
+                                    <Link href={service.link} className="text-gray-400 hover:text-white transition-colors flex items-center group">
+                                        {service.title} <ArrowRight size={16} className="ml-2 opacity-0 group-hover:opacity-100 transform -translate-x-2 group-hover:translate-x-0 transition-all" />
+                                    </Link>
+                                </li>
+                            ))}
                         </ul>
                     </div>
 
