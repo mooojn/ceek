@@ -1,6 +1,7 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import { supabase } from '@/lib/supabase';
 
 interface FormData {
   fullName: string;
@@ -93,6 +94,25 @@ export default function GetInTouch() {
   });
   const [isAnimating, setIsAnimating] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+
+  // Load from local storage on mount
+  useEffect(() => {
+    const savedData = localStorage.getItem('contactFormData');
+    if (savedData) {
+      try {
+        setFormData(JSON.parse(savedData));
+      } catch (e) {
+        console.error('Failed to parse saved form data', e);
+      }
+    }
+  }, []);
+
+  // Save to local storage on change
+  useEffect(() => {
+    localStorage.setItem('contactFormData', JSON.stringify(formData));
+  }, [formData]);
 
   const currentQuestion = questions[currentStep];
 
@@ -108,7 +128,7 @@ export default function GetInTouch() {
     }
   };
 
-  const handleNext = () => {
+  const handleNext = async () => {
     // Check if current field is required and filled
     if (currentQuestion.id === 'phone') {
       if (!formData.phoneNumber.trim()) return;
@@ -121,15 +141,46 @@ export default function GetInTouch() {
     }
 
     setIsAnimating(true);
+    setError(null);
 
-    setTimeout(() => {
+    setTimeout(async () => {
       if (currentStep < questions.length - 1) {
         setCurrentStep(currentStep + 1);
         setIsAnimating(false);
       } else {
         // Form completed
-        console.log('Form Data:', formData);
-        setIsSubmitted(true);
+        setIsAnimating(false);
+        setIsSubmitting(true);
+
+        try {
+          const { error: supabaseError } = await supabase
+            .from('form_submissions')
+            .insert([
+              {
+                full_name: formData.fullName,
+                business_name: formData.businessName,
+                email: formData.email,
+                country_code: formData.countryCode,
+                phone_number: formData.phoneNumber,
+                website_url: formData.websiteUrl,
+                business_description: formData.businessDescription,
+                budget: formData.budget,
+                additional_comments: formData.additionalComments,
+              },
+            ]);
+
+          if (supabaseError) throw supabaseError;
+
+          // Clear local storage on success
+          localStorage.removeItem('contactFormData');
+          console.log('Form Data:', formData);
+          setIsSubmitted(true);
+        } catch (err: any) {
+          console.error('Submission error:', err);
+          setError(err.message || 'Something went wrong. Please try again.');
+        } finally {
+          setIsSubmitting(false);
+        }
       }
     }, 300);
   };
@@ -146,7 +197,7 @@ export default function GetInTouch() {
       <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6">
         <div className="w-full max-w-3xl">
           <h1 className="text-5xl md:text-6xl font-bold mb-12">Get in touch</h1>
-          
+
           <div className="bg-black rounded-2xl p-12 md:p-20 text-center animate-fadeIn">
             <div className="mb-6">
               <svg
@@ -186,9 +237,8 @@ export default function GetInTouch() {
         </div>
 
         <div
-          className={`bg-black rounded-2xl p-8 md:p-16 transition-opacity duration-300 ${
-            isAnimating ? 'opacity-0' : 'opacity-100'
-          }`}
+          className={`bg-black rounded-2xl p-8 md:p-16 transition-opacity duration-300 ${isAnimating ? 'opacity-0' : 'opacity-100'
+            }`}
         >
           <div className="mb-8">
             <h2 className="text-2xl md:text-3xl text-white font-normal mb-8 flex items-start">
@@ -242,13 +292,15 @@ export default function GetInTouch() {
                 autoFocus
               />
             )}
+            {error && <p className="text-red-500 mt-2">{error}</p>}
           </div>
 
           <button
             onClick={handleNext}
-            className="bg-white text-black font-semibold px-8 py-3 rounded-md hover:bg-gray-200 transition-colors"
+            disabled={isSubmitting}
+            className="bg-white text-black font-semibold px-8 py-3 rounded-md hover:bg-gray-200 transition-colors disabled:opacity-50"
           >
-            OK
+            {isSubmitting ? 'Submitting...' : 'OK'}
           </button>
 
           <div className="flex justify-end gap-2 mt-8">
@@ -262,7 +314,7 @@ export default function GetInTouch() {
                   }, 300);
                 }
               }}
-              disabled={currentStep === 0}
+              disabled={currentStep === 0 || isSubmitting}
               className="p-2 rounded-md bg-gray-800 hover:bg-gray-700 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
             >
               <svg
@@ -281,7 +333,8 @@ export default function GetInTouch() {
             </button>
             <button
               onClick={handleNext}
-              className="p-2 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors"
+              disabled={isSubmitting}
+              className="p-2 rounded-md bg-gray-800 hover:bg-gray-700 transition-colors disabled:opacity-50"
             >
               <svg
                 className="w-6 h-6 text-white"
@@ -304,9 +357,8 @@ export default function GetInTouch() {
             {questions.map((_, index) => (
               <div
                 key={index}
-                className={`h-1 flex-1 rounded-full transition-colors ${
-                  index <= currentStep ? 'bg-white' : 'bg-gray-700'
-                }`}
+                className={`h-1 flex-1 rounded-full transition-colors ${index <= currentStep ? 'bg-white' : 'bg-gray-700'
+                  }`}
               />
             ))}
           </div>
