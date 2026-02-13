@@ -28,7 +28,6 @@ export default function AdminPage() {
     const [loading, setLoading] = useState(false);
     const [selectedSubmission, setSelectedSubmission] = useState<FormSubmission | null>(null);
 
-    // Check session storage on mount
     useEffect(() => {
         const authed = sessionStorage.getItem('admin_authed');
         if (authed === 'true') {
@@ -37,11 +36,8 @@ export default function AdminPage() {
         }
     }, []);
 
-    // Fetch submissions once authenticated
     useEffect(() => {
-        if (isAuthenticated) {
-            fetchSubmissions();
-        }
+        if (isAuthenticated) fetchSubmissions();
     }, [isAuthenticated]);
 
     const fetchSubmissions = async () => {
@@ -50,12 +46,7 @@ export default function AdminPage() {
             .from('form_submissions')
             .select('*')
             .order('created_at', { ascending: false });
-
-        if (error) {
-            console.error('Error fetching submissions:', error);
-        } else {
-            setSubmissions(data || []);
-        }
+        if (!error) setSubmissions(data || []);
         setLoading(false);
     };
 
@@ -72,65 +63,48 @@ export default function AdminPage() {
         }
     };
 
-    const formatDate = (dateStr: string) => {
-        return new Date(dateStr).toLocaleDateString('en-US', {
-            year: 'numeric',
-            month: 'short',
-            day: 'numeric',
-            hour: '2-digit',
-            minute: '2-digit',
+    const formatDate = (dateStr: string) =>
+        new Date(dateStr).toLocaleDateString('en-US', {
+            year: 'numeric', month: 'short', day: 'numeric',
+            hour: '2-digit', minute: '2-digit',
         });
-    };
 
-    // Password Modal
+    // ── Password Gate ──
     if (showModal || !isAuthenticated) {
         return (
-            <div className="min-h-screen bg-gray-950 flex items-center justify-center p-6">
-                {/* Backdrop blur overlay */}
-                <div className="fixed inset-0 bg-black/70 backdrop-blur-sm" />
-
-                {/* Modal */}
-                <div className="relative z-10 bg-gray-900 border border-gray-800 rounded-2xl p-8 w-full max-w-md shadow-2xl">
-                    <div className="flex items-center justify-center mb-6">
-                        <div className="w-14 h-14 bg-gray-800 rounded-full flex items-center justify-center">
-                            <svg className="w-7 h-7 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 flex items-center justify-center p-4">
+                <div className="fixed inset-0 bg-white/60 backdrop-blur-md" />
+                <div className="relative z-10 bg-white rounded-2xl p-8 sm:p-10 w-full max-w-sm shadow-[0_8px_40px_rgba(0,0,0,0.08)] border border-gray-100">
+                    {/* Lock icon */}
+                    <div className="flex justify-center mb-6">
+                        <div className="w-16 h-16 rounded-2xl bg-black flex items-center justify-center">
+                            <svg className="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5}
-                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"
-                                />
+                                    d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                             </svg>
                         </div>
                     </div>
-
-                    <h2 className="text-2xl font-semibold text-white text-center mb-2">
-                        Protected Area
-                    </h2>
-                    <p className="text-gray-500 text-center mb-8 text-sm">
-                        Enter the admin password to continue
-                    </p>
+                    <h2 className="text-xl font-bold text-gray-900 text-center mb-1">Admin Access</h2>
+                    <p className="text-gray-400 text-center text-sm mb-8">Enter password to continue</p>
 
                     <form onSubmit={handlePasswordSubmit}>
-                        <div className="mb-4">
-                            <input
-                                type="password"
-                                value={password}
-                                onChange={(e) => { setPassword(e.target.value); setError(''); }}
-                                placeholder="Password"
-                                autoFocus
-                                className="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-3 text-white placeholder-gray-500 focus:outline-none focus:border-white focus:ring-1 focus:ring-white transition-colors"
-                            />
-                            {error && (
-                                <p className="text-red-400 text-sm mt-2 flex items-center gap-1">
-                                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                                        <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
-                                    </svg>
-                                    {error}
-                                </p>
-                            )}
-                        </div>
-                        <button
-                            type="submit"
-                            className="w-full bg-white text-black font-semibold py-3 rounded-lg hover:bg-gray-200 transition-colors"
-                        >
+                        <input
+                            type="password"
+                            value={password}
+                            onChange={(e) => { setPassword(e.target.value); setError(''); }}
+                            placeholder="Password"
+                            autoFocus
+                            className="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-3.5 text-gray-900 placeholder-gray-400 focus:outline-none focus:border-black focus:ring-2 focus:ring-black/5 transition-all text-sm"
+                        />
+                        {error && (
+                            <p className="text-red-500 text-xs mt-2 flex items-center gap-1.5">
+                                <svg className="w-3.5 h-3.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fillRule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z" clipRule="evenodd" />
+                                </svg>
+                                {error}
+                            </p>
+                        )}
+                        <button type="submit" className="w-full mt-4 bg-black text-white font-medium py-3.5 rounded-xl hover:bg-gray-800 active:scale-[0.98] transition-all text-sm">
                             Unlock
                         </button>
                     </form>
@@ -139,106 +113,96 @@ export default function AdminPage() {
         );
     }
 
-    // Admin Dashboard
+    // ── Admin Dashboard ──
     return (
-        <div className="min-h-screen bg-gray-950 text-white">
+        <div className="min-h-screen bg-gray-50">
             {/* Header */}
-            <div className="border-b border-gray-800 bg-gray-950/80 backdrop-blur-md sticky top-0 z-10">
-                <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+            <header className="bg-white border-b border-gray-200 sticky top-0 z-10">
+                <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
                     <div>
-                        <h1 className="text-2xl font-bold">Form Submissions</h1>
-                        <p className="text-gray-500 text-sm mt-0.5">
+                        <h1 className="text-lg sm:text-xl font-bold text-gray-900">Submissions</h1>
+                        <p className="text-gray-400 text-xs mt-0.5">
                             {submissions.length} {submissions.length === 1 ? 'entry' : 'entries'}
                         </p>
                     </div>
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
                         <button
                             onClick={fetchSubmissions}
                             disabled={loading}
-                            className="bg-gray-800 hover:bg-gray-700 text-white px-4 py-2 rounded-lg text-sm transition-colors flex items-center gap-2 disabled:opacity-50"
+                            className="bg-gray-100 hover:bg-gray-200 text-gray-700 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm transition-colors flex items-center gap-1.5 disabled:opacity-50"
                         >
-                            <svg className={`w-4 h-4 ${loading ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg className={`w-3.5 h-3.5 ${loading ? 'animate-spin' : ''}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                             </svg>
-                            Refresh
+                            <span className="hidden sm:inline">Refresh</span>
                         </button>
                         <button
-                            onClick={() => {
-                                sessionStorage.removeItem('admin_authed');
-                                setIsAuthenticated(false);
-                                setShowModal(true);
-                            }}
-                            className="bg-red-900/50 hover:bg-red-900 text-red-300 hover:text-white px-4 py-2 rounded-lg text-sm transition-colors"
+                            onClick={() => { sessionStorage.removeItem('admin_authed'); setIsAuthenticated(false); setShowModal(true); }}
+                            className="bg-red-50 hover:bg-red-100 text-red-600 px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm transition-colors"
                         >
                             Logout
                         </button>
                     </div>
                 </div>
-            </div>
+            </header>
 
-            <div className="max-w-7xl mx-auto px-6 py-8">
+            <main className="max-w-7xl mx-auto px-4 sm:px-6 py-6">
                 {loading ? (
                     <div className="flex items-center justify-center py-20">
-                        <div className="w-8 h-8 border-2 border-gray-700 border-t-white rounded-full animate-spin" />
+                        <div className="w-7 h-7 border-2 border-gray-200 border-t-black rounded-full animate-spin" />
                     </div>
                 ) : submissions.length === 0 ? (
                     <div className="text-center py-20">
-                        <div className="w-16 h-16 bg-gray-900 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <svg className="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <div className="w-14 h-14 bg-gray-100 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                            <svg className="w-6 h-6 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M20 13V6a2 2 0 00-2-2H6a2 2 0 00-2 2v7m16 0v5a2 2 0 01-2 2H6a2 2 0 01-2-2v-5m16 0h-2.586a1 1 0 00-.707.293l-2.414 2.414a1 1 0 01-.707.293h-3.172a1 1 0 01-.707-.293l-2.414-2.414A1 1 0 006.586 13H4" />
                             </svg>
                         </div>
-                        <h3 className="text-xl font-semibold text-gray-400 mb-1">No submissions yet</h3>
-                        <p className="text-gray-600 text-sm">Form submissions from the Get in Touch page will appear here.</p>
+                        <h3 className="text-base font-semibold text-gray-500 mb-1">No submissions yet</h3>
+                        <p className="text-gray-400 text-sm">Entries from the Get in Touch page will show here.</p>
                     </div>
                 ) : (
                     <>
-                        {/* Table */}
-                        <div className="bg-gray-900 border border-gray-800 rounded-xl overflow-hidden">
+                        {/* ── Desktop Table ── */}
+                        <div className="hidden md:block bg-white border border-gray-200 rounded-xl overflow-hidden shadow-sm">
                             <div className="overflow-x-auto">
                                 <table className="w-full text-sm">
                                     <thead>
-                                        <tr className="border-b border-gray-800 bg-gray-900/50">
-                                            <th className="text-left px-4 py-3 text-gray-400 font-medium">#</th>
-                                            <th className="text-left px-4 py-3 text-gray-400 font-medium">Date</th>
-                                            <th className="text-left px-4 py-3 text-gray-400 font-medium">Name</th>
-                                            <th className="text-left px-4 py-3 text-gray-400 font-medium">Business</th>
-                                            <th className="text-left px-4 py-3 text-gray-400 font-medium">Email</th>
-                                            <th className="text-left px-4 py-3 text-gray-400 font-medium">Phone</th>
-                                            <th className="text-left px-4 py-3 text-gray-400 font-medium">Budget</th>
-                                            <th className="text-left px-4 py-3 text-gray-400 font-medium">Actions</th>
+                                        <tr className="border-b border-gray-100 bg-gray-50/60">
+                                            <th className="text-left px-5 py-3 text-gray-500 font-medium text-xs uppercase tracking-wider">#</th>
+                                            <th className="text-left px-5 py-3 text-gray-500 font-medium text-xs uppercase tracking-wider">Date</th>
+                                            <th className="text-left px-5 py-3 text-gray-500 font-medium text-xs uppercase tracking-wider">Name</th>
+                                            <th className="text-left px-5 py-3 text-gray-500 font-medium text-xs uppercase tracking-wider">Business</th>
+                                            <th className="text-left px-5 py-3 text-gray-500 font-medium text-xs uppercase tracking-wider">Email</th>
+                                            <th className="text-left px-5 py-3 text-gray-500 font-medium text-xs uppercase tracking-wider">Phone</th>
+                                            <th className="text-left px-5 py-3 text-gray-500 font-medium text-xs uppercase tracking-wider">Budget</th>
+                                            <th className="text-left px-5 py-3 text-gray-500 font-medium text-xs uppercase tracking-wider"></th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        {submissions.map((sub, index) => (
-                                            <tr
-                                                key={sub.id}
-                                                className="border-b border-gray-800/50 hover:bg-gray-800/30 transition-colors cursor-pointer"
+                                        {submissions.map((sub, i) => (
+                                            <tr key={sub.id}
+                                                className="border-b border-gray-50 hover:bg-gray-50/80 transition-colors cursor-pointer"
                                                 onClick={() => setSelectedSubmission(sub)}
                                             >
-                                                <td className="px-4 py-3 text-gray-500">{index + 1}</td>
-                                                <td className="px-4 py-3 text-gray-400 whitespace-nowrap">{formatDate(sub.created_at)}</td>
-                                                <td className="px-4 py-3 text-white font-medium">{sub.full_name}</td>
-                                                <td className="px-4 py-3 text-gray-300">{sub.business_name}</td>
-                                                <td className="px-4 py-3">
-                                                    <a href={`mailto:${sub.email}`} className="text-blue-400 hover:text-blue-300 hover:underline" onClick={(e) => e.stopPropagation()}>
-                                                        {sub.email}
-                                                    </a>
+                                                <td className="px-5 py-4 text-gray-400">{i + 1}</td>
+                                                <td className="px-5 py-4 text-gray-500 whitespace-nowrap text-xs">{formatDate(sub.created_at)}</td>
+                                                <td className="px-5 py-4 text-gray-900 font-medium">{sub.full_name}</td>
+                                                <td className="px-5 py-4 text-gray-600">{sub.business_name}</td>
+                                                <td className="px-5 py-4">
+                                                    <a href={`mailto:${sub.email}`} onClick={(e) => e.stopPropagation()} className="text-blue-600 hover:text-blue-700 hover:underline">{sub.email}</a>
                                                 </td>
-                                                <td className="px-4 py-3 whitespace-nowrap">
-                                                    <a href={`tel:${sub.country_code}${sub.phone_number}`} className="text-blue-400 hover:text-blue-300 hover:underline" onClick={(e) => e.stopPropagation()}>
+                                                <td className="px-5 py-4 whitespace-nowrap">
+                                                    <a href={`tel:${sub.country_code}${sub.phone_number}`} onClick={(e) => e.stopPropagation()} className="text-blue-600 hover:text-blue-700 hover:underline">
                                                         {sub.country_code} {sub.phone_number}
                                                     </a>
                                                 </td>
-                                                <td className="px-4 py-3 text-gray-300">{sub.budget || '—'}</td>
-                                                <td className="px-4 py-3">
-                                                    <button
-                                                        onClick={(e) => { e.stopPropagation(); setSelectedSubmission(sub); }}
-                                                        className="text-gray-500 hover:text-white transition-colors"
-                                                    >
-                                                        <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                                <td className="px-5 py-4 text-gray-600">{sub.budget || '—'}</td>
+                                                <td className="px-5 py-4">
+                                                    <button onClick={(e) => { e.stopPropagation(); setSelectedSubmission(sub); }}
+                                                        className="text-gray-400 hover:text-gray-700 transition-colors">
+                                                        <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                                                         </svg>
                                                     </button>
                                                 </td>
@@ -248,29 +212,79 @@ export default function AdminPage() {
                                 </table>
                             </div>
                         </div>
+
+                        {/* ── Mobile Cards ── */}
+                        <div className="md:hidden space-y-3">
+                            {submissions.map((sub, i) => (
+                                <div
+                                    key={sub.id}
+                                    onClick={() => setSelectedSubmission(sub)}
+                                    className="bg-white border border-gray-200 rounded-xl p-4 active:bg-gray-50 transition-colors cursor-pointer shadow-sm"
+                                >
+                                    <div className="flex items-start justify-between mb-3">
+                                        <div className="flex-1 min-w-0">
+                                            <p className="text-sm font-semibold text-gray-900 truncate">{sub.full_name}</p>
+                                            <p className="text-xs text-gray-500 mt-0.5">{sub.business_name}</p>
+                                        </div>
+                                        <span className="text-[10px] text-gray-400 bg-gray-100 px-2 py-0.5 rounded-full flex-shrink-0 ml-2">
+                                            #{i + 1}
+                                        </span>
+                                    </div>
+                                    <div className="flex flex-wrap gap-2 text-xs">
+                                        <a href={`mailto:${sub.email}`} onClick={(e) => e.stopPropagation()}
+                                            className="inline-flex items-center gap-1 text-blue-600 bg-blue-50 px-2.5 py-1 rounded-lg">
+                                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                            </svg>
+                                            Email
+                                        </a>
+                                        <a href={`tel:${sub.country_code}${sub.phone_number}`} onClick={(e) => e.stopPropagation()}
+                                            className="inline-flex items-center gap-1 text-green-600 bg-green-50 px-2.5 py-1 rounded-lg">
+                                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                                            </svg>
+                                            Call
+                                        </a>
+                                        <a href={`https://wa.me/${sub.country_code.replace('+', '')}${sub.phone_number}`} target="_blank" rel="noopener noreferrer" onClick={(e) => e.stopPropagation()}
+                                            className="inline-flex items-center gap-1 text-emerald-700 bg-emerald-50 px-2.5 py-1 rounded-lg">
+                                            <svg className="w-3 h-3" viewBox="0 0 24 24" fill="currentColor">
+                                                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z" />
+                                                <path d="M12 0C5.373 0 0 5.373 0 12c0 2.625.846 5.059 2.284 7.034L.789 23.492a.5.5 0 00.61.61l4.458-1.495A11.952 11.952 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 22c-2.325 0-4.47-.744-6.227-2.01l-.442-.325-3.281 1.1 1.1-3.281-.325-.442A9.935 9.935 0 012 12C2 6.477 6.477 2 12 2s10 4.477 10 10-4.477 10-10 10z" />
+                                            </svg>
+                                            WhatsApp
+                                        </a>
+                                    </div>
+                                    <p className="text-[10px] text-gray-400 mt-3">{formatDate(sub.created_at)}</p>
+                                </div>
+                            ))}
+                        </div>
                     </>
                 )}
-            </div>
+            </main>
 
-            {/* Detail Modal */}
+            {/* ── Detail Modal ── */}
             {selectedSubmission && (
-                <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-6 z-50" onClick={() => setSelectedSubmission(null)}>
-                    <div className="bg-gray-900 border border-gray-800 rounded-2xl w-full max-w-2xl max-h-[85vh] overflow-y-auto shadow-2xl" onClick={(e) => e.stopPropagation()}>
-                        {/* Modal Header */}
-                        <div className="flex items-center justify-between p-6 border-b border-gray-800 sticky top-0 bg-gray-900 rounded-t-2xl">
+                <div className="fixed inset-0 bg-black/20 backdrop-blur-sm flex items-end sm:items-center justify-center z-50 p-0 sm:p-6"
+                    onClick={() => setSelectedSubmission(null)}>
+                    <div className="bg-white w-full sm:w-auto sm:min-w-[480px] sm:max-w-lg sm:rounded-2xl rounded-t-2xl max-h-[90vh] overflow-y-auto shadow-2xl border border-gray-200"
+                        onClick={(e) => e.stopPropagation()}>
+
+                        {/* Header */}
+                        <div className="flex items-center justify-between p-5 sm:p-6 border-b border-gray-100 sticky top-0 bg-white sm:rounded-t-2xl rounded-t-2xl">
                             <div>
-                                <h2 className="text-xl font-bold text-white">{selectedSubmission.full_name}</h2>
-                                <p className="text-gray-500 text-sm mt-0.5">{formatDate(selectedSubmission.created_at)}</p>
+                                <h2 className="text-lg font-bold text-gray-900">{selectedSubmission.full_name}</h2>
+                                <p className="text-gray-400 text-xs mt-0.5">{formatDate(selectedSubmission.created_at)}</p>
                             </div>
-                            <button onClick={() => setSelectedSubmission(null)} className="text-gray-500 hover:text-white p-1 transition-colors">
-                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <button onClick={() => setSelectedSubmission(null)}
+                                className="w-8 h-8 flex items-center justify-center rounded-lg text-gray-400 hover:text-gray-600 hover:bg-gray-100 transition-colors">
+                                <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                             </button>
                         </div>
 
-                        {/* Modal Body */}
-                        <div className="p-6 space-y-5">
+                        {/* Details */}
+                        <div className="p-5 sm:p-6 space-y-4">
                             <DetailRow label="Full Name" value={selectedSubmission.full_name} />
                             <DetailRow label="Business Name" value={selectedSubmission.business_name} />
                             <DetailRow label="Email" value={selectedSubmission.email} isLink href={`mailto:${selectedSubmission.email}`} />
@@ -281,26 +295,19 @@ export default function AdminPage() {
                             <DetailRow label="Additional Comments" value={selectedSubmission.additional_comments || '—'} isLong />
                         </div>
 
-                        {/* Modal Footer Actions */}
-                        <div className="p-6 border-t border-gray-800 flex gap-3">
-                            <a
-                                href={`mailto:${selectedSubmission.email}`}
-                                className="flex-1 bg-white text-black font-semibold py-2.5 rounded-lg text-center text-sm hover:bg-gray-200 transition-colors"
-                            >
-                                Send Email
+                        {/* Footer Actions */}
+                        <div className="p-5 sm:p-6 border-t border-gray-100 flex gap-2">
+                            <a href={`mailto:${selectedSubmission.email}`}
+                                className="flex-1 bg-black text-white font-medium py-2.5 rounded-xl text-center text-sm hover:bg-gray-800 active:scale-[0.98] transition-all">
+                                Email
                             </a>
-                            <a
-                                href={`tel:${selectedSubmission.country_code}${selectedSubmission.phone_number}`}
-                                className="flex-1 bg-gray-800 text-white font-semibold py-2.5 rounded-lg text-center text-sm hover:bg-gray-700 transition-colors"
-                            >
+                            <a href={`tel:${selectedSubmission.country_code}${selectedSubmission.phone_number}`}
+                                className="flex-1 bg-gray-100 text-gray-700 font-medium py-2.5 rounded-xl text-center text-sm hover:bg-gray-200 active:scale-[0.98] transition-all">
                                 Call
                             </a>
-                            <a
-                                href={`https://wa.me/${selectedSubmission.country_code.replace('+', '')}${selectedSubmission.phone_number}`}
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="flex-1 bg-green-800/50 text-green-300 font-semibold py-2.5 rounded-lg text-center text-sm hover:bg-green-800 transition-colors"
-                            >
+                            <a href={`https://wa.me/${selectedSubmission.country_code.replace('+', '')}${selectedSubmission.phone_number}`}
+                                target="_blank" rel="noopener noreferrer"
+                                className="flex-1 bg-green-50 text-green-700 font-medium py-2.5 rounded-xl text-center text-sm hover:bg-green-100 active:scale-[0.98] transition-all">
                                 WhatsApp
                             </a>
                         </div>
@@ -314,13 +321,14 @@ export default function AdminPage() {
 function DetailRow({ label, value, isLink, href, isLong }: { label: string; value: string; isLink?: boolean; href?: string; isLong?: boolean }) {
     return (
         <div>
-            <p className="text-gray-500 text-xs font-medium uppercase tracking-wider mb-1">{label}</p>
+            <p className="text-[11px] text-gray-400 font-medium uppercase tracking-wider mb-1">{label}</p>
             {isLink && value !== '—' ? (
-                <a href={href} target={label === 'Website' ? '_blank' : undefined} rel="noopener noreferrer" className="text-blue-400 hover:text-blue-300 hover:underline break-all">
+                <a href={href} target={label === 'Website' ? '_blank' : undefined} rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-700 hover:underline text-sm break-all">
                     {value}
                 </a>
             ) : (
-                <p className={`text-white ${isLong ? 'whitespace-pre-wrap' : ''} break-words`}>{value}</p>
+                <p className={`text-gray-900 text-sm ${isLong ? 'whitespace-pre-wrap' : ''} break-words`}>{value}</p>
             )}
         </div>
     );
