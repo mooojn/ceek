@@ -232,7 +232,7 @@ export default function GetInTouch() {
         <div className="flex justify-between items-start mb-12">
           <h1 className="text-4xl md:text-4xl font-bold text-black">Get in touch</h1>
           <p className="text-gray-600 text-sm md:text-base mt-2">
-            Fill out the form below and CEEK will get back to you as soon as we can.
+            Fill out the form below and Marketo360 will get back to you as soon as we can.
           </p>
         </div>
 
