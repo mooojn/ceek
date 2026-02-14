@@ -50,7 +50,7 @@ const Navbar = () => {
         <div>
           <Link
             href="/get-in-touch"
-            className="bg-black text-white px-6 py-3 rounded-full font-medium hover:opacity-80 transition-opacity"
+            className="bg-black text-white px-6 py-3 rounded-full font-medium hover:opacity-80 hover:bg-white hover:text-black hover:border hover:border-black hover:cursor-pointer transition-all duration-300 ease-in-out"
           >
             Get in touch
           </Link>
