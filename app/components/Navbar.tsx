@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import ServicesOverlay from './ServicesOverlay';
 
 const Navbar = () => {
@@ -10,9 +11,14 @@ const Navbar = () => {
   return (
     <>
       <nav className="fixed top-0 left-0 w-full bg-[#FAFAFA] z-40 flex items-center justify-between px-6 py-4 md:px-12 border-b border-gray-200">
-        <div className="text-2xl font-bold tracking-tighter text-black uppercase font-sans">
-          <Link href="/">Marketo360</Link>
-        </div>
+        <Link href="/">
+          <Image
+            src="/logo-b.png"
+            alt="Marketo360"
+            width={150}
+            height={40}
+          />
+        </Link>
 
         <ul className="hidden md:flex items-center gap-8 text-[#333333] font-medium text-base list-none">
           {[

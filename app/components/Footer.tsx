@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { Instagram, Linkedin, Twitter, ArrowRight } from 'lucide-react';
 import { services } from '@/app/data/services';
 
@@ -14,15 +15,15 @@ const Footer = () => {
 
                     {/* Column 1 - Logo (Takes up ~3 cols on LG) */}
                     <div className="lg:col-span-3 flex flex-col justify-between h-full lg:min-h-[200px]">
-                        <div className="hidden lg:block">
-                            <h2 className="text-4xl font-bold tracking-tighter uppercase whitespace-nowrap opacity-20 hover:opacity-100 transition-opacity cursor-default">
-                                Marketo360
-                            </h2>
-                        </div>
-                        {/* Mobile Logo */}
-                        <div className="lg:hidden mb-0">
-                            <h2 className="text-3xl font-bold tracking-tighter uppercase">Marketo360</h2>
-                        </div>
+                        <Link href="/">
+                            <Image
+                                src="/logo-w.png"
+                                alt="Marketo360"
+                                width={180}
+                                height={50}
+                                className="opacity-80 hover:opacity-100 transition-opacity"
+                            />
+                        </Link>
                     </div>
 
                     {/* Column 2 - ABOUT (Takes up ~2 cols on LG) */}
@@ -64,10 +65,10 @@ const Footer = () => {
                             </li>
                             <li>
                                 <a
-                                    href="mailto:sales@marketo360.gmail.com"
+                                    href="mailto:info@marketo360.com"
                                     className="text-gray-400 hover:text-white transition-colors block break-all"
                                 >
-                                    sales@marketo360.gmail.com
+                                    info@marketo360.com
                                 </a>
                             </li>
                         </ul>
