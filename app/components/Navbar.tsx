@@ -36,7 +36,7 @@ const Navbar = () => {
           {[
             { name: 'Services', action: () => setIsServicesOpen(true) },
             // { name: 'Sectors', href: '/sectors' },
-            // { name: 'Locations', href: '/locations' },
+            { name: 'Locations', href: '/locations' },
             { name: 'Case Studies', href: '/case-studies' },
             { name: 'About Us', href: '/about-us' },
           ].map((item) => (

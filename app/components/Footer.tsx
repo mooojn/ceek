@@ -31,7 +31,7 @@ const Footer = () => {
                         <h3 className="text-xl font-bold uppercase mb-6 tracking-wide">About</h3>
                         <ul className="space-y-4">
                             <li><Link href="/privacy-policy" className="text-gray-400 hover:text-white transition-colors">Privacy Policy</Link></li>
-                            <li><Link href="/contact" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
+                            <li><Link href="/get-in-touch" className="text-gray-400 hover:text-white transition-colors">Contact</Link></li>
                         </ul>
                     </div>
 
@@ -55,12 +55,12 @@ const Footer = () => {
                         <ul className="space-y-4 mb-8">
                             <li>
                                 <a
-                                    href="https://wa.me/924200000"
+                                    href="https://wa.me/+971552038250"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gray-400 hover:text-white transition-colors block"
                                 >
-                                    +92 4200000
+                                    +971 552038250
                                 </a>
                             </li>
                             <li>
@@ -98,7 +98,7 @@ const Footer = () => {
 
                     <div>
                         <Link
-                            href="/contact"
+                            href="/get-in-touch"
                             className="inline-block border-2 border-black rounded-full px-8 py-3 font-bold uppercase text-sm tracking-wide hover:bg-black hover:text-white transition-colors duration-300"
                         >
                             Contact
