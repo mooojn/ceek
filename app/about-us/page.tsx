@@ -2,8 +2,6 @@ import Navbar from '../components/Navbar';
 import Footer from '../components/Footer';
 import AboutHero from '../components/AboutHero';
 import ClientLogos from '../components/ClientLogos';
-import Timeline from '../components/Timeline';
-import HowToWorkWithCeek from '../components/HowToWorkWithCeek';
 import CTA from '../components/CTA';
 
 export default function AboutUs() {
@@ -13,8 +11,6 @@ export default function AboutUs() {
       <div className="pt-20"> 
         <AboutHero />
         <ClientLogos />
-        <Timeline />
-        <HowToWorkWithCeek />
       </div>
       <CTA 
         title="BECOME A Marketo360 CLIENT"
