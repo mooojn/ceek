@@ -20,7 +20,7 @@ const locations: Location[] = [
         id: 'uae',
         city: 'Dubai',
         contactName: 'Muhammad Nasir',
-        designation: 'Business Development Manager',
+        designation: 'Business Development Executive',
         address: 'Flat 101, Al Sabkha, Deira, Dubai, UAE',
         email: 'bdm.uae@marketo.com',
         phone: '+971552038250',
