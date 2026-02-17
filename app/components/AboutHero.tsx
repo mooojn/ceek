@@ -14,16 +14,8 @@ const AboutHero = () => {
         {/* Divider */}
         <div className="w-full border-t border-gray-700 mb-12 md:mb-16"></div>
 
-        {/* Content Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 lg:gap-24">
-          {/* Left Column: Sub-heading */}
-          <div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight">
-              The Marketo360 Team
-            </h2>
-          </div>
-
-          {/* Right Column: Text Content */}
+        {/* Content */}
+        <div className="max-w-4xl">
           <div className="space-y-8 text-lg md:text-xl text-gray-300 font-light leading-relaxed">
             <p>
               Marketo360 Marketing is an omnichannel digital marketing agency, dedicated to assisting brands in amplifying their digital presence. Marketo360 has a passion for start-ups & helping big companies act like start-ups, with an outsourced marketing solution for businesses of all sizes.

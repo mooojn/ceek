@@ -13,32 +13,18 @@ const ServicesHero = () => {
           </h1>
         </div>
 
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
-          <div className="lg:w-1/2">
-            <div className="text-gray-400 text-sm md:text-base mb-4">London Marketing Consultancy</div>
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-semibold tracking-tight leading-tight">
-              Digital Marketing at<br />Marketo360
-            </h2>
-          </div>
-
-          <div className="lg:w-1/2 flex flex-col items-start">
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
-              Marketo360 has brought together an experienced team with different skill sets, covering aspects of digital marketing services – offering a complete package to clients with a tailored approach to maximise the return on investment of every campaign.
-            </p>
-            <p className="text-lg text-gray-300 leading-relaxed mb-8">
-              In an industry which is constantly changing at a fast pace, our team stays updated with all trends across their various specialities, allowing us to deliver the best results for our clients.
-            </p>
-            <p className="text-lg text-gray-300 leading-relaxed mb-10">
-              Our years of experience spanning a diverse range of sectors and industries allows us to deliver the most effective digital marketing methods for each of our clients based on their industry and specific goals.
-            </p>
-            
-            <Link 
-              href="/contact" 
-              className="inline-block bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors duration-300"
-            >
-              Get in touch
-            </Link>
-          </div>
+        {/* Content */}
+        <div className="max-w-4xl">
+          <p className="text-lg md:text-xl text-gray-300 font-light leading-relaxed mb-10">
+            Marketo360 brings together a team of digital experts to deliver tailored, performance-driven marketing solutions. We stay ahead of industry trends and apply data-led strategies to help brands grow, adapt, and achieve measurable results across every digital channel.
+          </p>
+          
+          <Link 
+            href="/contact" 
+            className="inline-block bg-white text-black px-8 py-3 rounded-full font-medium hover:bg-gray-200 transition-colors duration-300"
+          >
+            Get in touch
+          </Link>
         </div>
       </div>
     </section>
