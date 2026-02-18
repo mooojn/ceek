@@ -48,7 +48,7 @@ const CaseStudies = () => {
                 {/* Header */}
                 <div className="mb-12">
                     <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white uppercase mb-6 tracking-tight">
-                        Recent Case Studies
+                        Example Portoflio
                     </h2>
                     <hr className="border-gray-700 opacity-50" />
                 </div>
