@@ -159,7 +159,7 @@ const CaseStudies = () => {
                             </button>
 
                             {/* Image Section - Top Focus */}
-                            <div className="w-full relative aspect-video md:aspect-[21/9] bg-gray-900 border-b border-white/10">
+                            <div className="w-full relative aspect-[16/10] sm:aspect-video md:aspect-[21/9] bg-gray-900 border-b border-white/10">
                                 <Image
                                     src={selectedStudy.image}
                                     alt={selectedStudy.title}
@@ -170,50 +170,50 @@ const CaseStudies = () => {
                             </div>
 
                             {/* Content Section - Bottom Detailed View */}
-                            <div className="w-full p-8 md:p-16">
-                                <div className="max-w-4xl mx-auto space-y-12">
-                                    <div className="space-y-4">
+                            <div className="w-full p-6 sm:p-10 md:p-16">
+                                <div className="max-w-4xl mx-auto space-y-8 md:space-y-12">
+                                    <div className="space-y-3 md:space-y-4">
                                         <div className="flex items-center gap-4">
-                                            <span className="bg-blue-600/20 text-blue-400 px-4 py-1 rounded-full font-bold uppercase tracking-widest text-[10px] border border-blue-500/20">
+                                            <span className="bg-blue-600/20 text-blue-400 px-3 md:px-4 py-1 rounded-full font-bold uppercase tracking-widest text-[9px] md:text-[10px] border border-blue-500/20">
                                                 {selectedStudy.year} CASE STUDY
                                             </span>
                                         </div>
-                                        <h2 className="text-4xl md:text-6xl font-bold text-white uppercase tracking-tight leading-none">
+                                        <h2 className="text-3xl sm:text-4xl md:text-6xl font-bold text-white uppercase tracking-tight leading-[1.1] md:leading-none">
                                             {selectedStudy.title}
                                         </h2>
                                     </div>
 
-                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-12 border-y border-white/5">
-                                        <div className="space-y-2">
-                                            <p className="text-white/30 uppercase text-[10px] font-black tracking-[0.2em]">Industry</p>
-                                            <p className="text-white text-xl font-medium">{selectedStudy.industry}</p>
+                                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-12 py-8 md:py-12 border-y border-white/5">
+                                        <div className="space-y-1 md:space-y-2">
+                                            <p className="text-white/30 uppercase text-[9px] md:text-[10px] font-black tracking-[0.2em]">Industry</p>
+                                            <p className="text-white text-lg md:text-xl font-medium">{selectedStudy.industry}</p>
                                         </div>
-                                        <div className="space-y-2">
-                                            <p className="text-white/30 uppercase text-[10px] font-black tracking-[0.2em]">Services</p>
-                                            <p className="text-white text-xl font-medium">{selectedStudy.services}</p>
+                                        <div className="space-y-1 md:space-y-2">
+                                            <p className="text-white/30 uppercase text-[9px] md:text-[10px] font-black tracking-[0.2em]">Services</p>
+                                            <p className="text-white text-lg md:text-xl font-medium">{selectedStudy.services}</p>
                                         </div>
-                                        <div className="space-y-2">
-                                            <p className="text-white/30 uppercase text-[10px] font-black tracking-[0.2em]">Location</p>
-                                            <p className="text-white text-xl font-medium">{selectedStudy.location}</p>
+                                        <div className="space-y-1 md:space-y-2">
+                                            <p className="text-white/30 uppercase text-[9px] md:text-[10px] font-black tracking-[0.2em]">Location</p>
+                                            <p className="text-white text-lg md:text-xl font-medium">{selectedStudy.location}</p>
                                         </div>
                                     </div>
 
-                                    <div className="space-y-6">
-                                        <p className="text-white/30 uppercase text-[10px] font-black tracking-[0.2em]">The Achievement</p>
-                                        <p className="text-white text-xl md:text-2xl leading-relaxed font-light first-letter:text-4xl first-letter:font-bold first-letter:text-blue-500 first-letter:mr-1">
+                                    <div className="space-y-4 md:space-y-6">
+                                        <p className="text-white/30 uppercase text-[9px] md:text-[10px] font-black tracking-[0.2em]">The Achievement</p>
+                                        <p className="text-white text-lg md:text-2xl leading-relaxed font-light first-letter:text-3xl md:first-letter:text-4xl first-letter:font-bold first-letter:text-blue-500 first-letter:mr-1">
                                             {selectedStudy.achievement}
                                         </p>
                                     </div>
 
-                                    <div className="pt-10 flex flex-col sm:flex-row gap-4">
+                                    <div className="pt-6 md:pt-10 flex flex-col sm:flex-row gap-4">
                                         <button
                                             onClick={() => setSelectedStudy(null)}
-                                            className="bg-white text-black px-12 py-5 rounded-full font-black uppercase text-xs tracking-[0.15em] hover:bg-blue-600 hover:text-white transition-all duration-500 shadow-xl"
+                                            className="w-full sm:w-auto bg-white text-black px-8 md:px-12 py-4 md:py-5 rounded-full font-black uppercase text-[10px] md:text-xs tracking-[0.15em] hover:bg-blue-600 hover:text-white transition-all duration-500 shadow-xl"
                                         >
                                             Close Case Study
                                         </button>
                                         <button
-                                            className="bg-transparent border border-white/20 text-white px-12 py-5 rounded-full font-black uppercase text-xs tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-500"
+                                            className="w-full sm:w-auto bg-transparent border border-white/20 text-white px-8 md:px-12 py-4 md:py-5 rounded-full font-black uppercase text-[10px] md:text-xs tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-500"
                                         >
                                             View Full Project
                                         </button>
