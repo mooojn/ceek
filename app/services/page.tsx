@@ -20,9 +20,6 @@ export default function ServicesPage() {
       
       {/* 3. Digital Marketing Services: Reused with off-white bg */}
       <Services 
-        backgroundColor="bg-[#F5F5F5]" 
-        textColor="text-black" 
-        titleColor="text-black"
       />
       
       {/* 4. Recent Case Studies: Reused from Home */}
