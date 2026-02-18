@@ -87,6 +87,7 @@ const Navbar = () => {
           <ul className="flex flex-col gap-6 text-[#333333] font-medium text-lg list-none">
             {[
               { name: 'Services', action: () => { setIsServicesOpen(true); closeMobileMenu(); } },
+              { name: 'Locations', href: '/locations' },
               { name: 'Case Studies', href: '/case-studies' },
               { name: 'About Us', href: '/about-us' },
             ].map((item) => (
