@@ -1,38 +1,47 @@
 'use client';
 
-import React from 'react';
+import React, { useState } from 'react';
 import Image from 'next/image';
-import { Plus } from 'lucide-react';
+import { Plus, X } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
 
 interface CaseStudy {
     id: number;
     title: string;
     year: string;
     image: string;
+    industry: string;
+    services: string;
+    location: string;
+    achievement: string;
 }
 
 const caseStudies: CaseStudy[] = [
     {
         id: 1,
-        title: "QUORN STONE",
+        title: "OPPSN ONTARIO",
         year: "2025",
-        image: "/placeholders/quorn.svg"
+        image: "/images/case-studies/c1.png",
+        industry: "Organization",
+        services: "Lead Generation",
+        location: "USA, Canada",
+        achievement: "For OPPSN (Ontario), we developed and managed performance marketing campaigns that increased donations and raised from $2K to $10K in under 2 months, delivering measurable ROI through data-driven optimization."
     },
     {
         id: 2,
-        title: "MOGU MOGU",
+        title: "REAL ESTATE",
         year: "2024",
-        image: "/placeholders/mogu.svg"
-    },
-    {
-        id: 3,
-        title: "DAME",
-        year: "2023",
-        image: "/placeholders/dame.svg"
+        image: "/images/case-studies/c2.png",
+        industry: "Real estate",
+        services: "Lead Generation",
+        location: "UAE, Dubai",
+        achievement: "Executed high-converting real estate campaigns in a competitive market, generating qualified global leads and driving 50% inventory sales through Meta, Google, and multi-channel advertising."
     }
 ];
 
 const CaseStudies = () => {
+    const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
+
     return (
         <section className="bg-[#1a1a1a] py-20 px-6 md:px-12 lg:px-20">
             <div className="max-w-7xl mx-auto">
@@ -45,11 +54,15 @@ const CaseStudies = () => {
                 </div>
 
                 {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
                     {caseStudies.map((study) => (
-                        <div key={study.id} className="group relative cursor-pointer block">
+                        <div
+                            key={study.id}
+                            className="group relative cursor-pointer block"
+                            onClick={() => setSelectedStudy(study)}
+                        >
                             {/* Card Container */}
-                            <div className="relative aspect-[4/5] overflow-hidden bg-gray-900 transition-all duration-300 group-hover:rounded-xl">
+                            <div className="relative aspect-[16/10] overflow-hidden bg-gray-900 transition-all duration-300 group-hover:rounded-xl border border-white/10">
                                 {/* Image */}
                                 <Image
                                     src={study.image}
@@ -59,11 +72,11 @@ const CaseStudies = () => {
                                 />
 
                                 {/* Overlay */}
-                                <div className="absolute inset-0 bg-black/0 transition-colors duration-300 group-hover:bg-black/40" />
+                                <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/60" />
 
                                 {/* Year Label */}
                                 <div className="absolute top-6 right-6 z-10">
-                                    <span className="text-white font-medium text-lg tracking-wider">
+                                    <span className="bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-white font-medium text-sm tracking-wider">
                                         {study.year}
                                     </span>
                                 </div>
@@ -77,10 +90,11 @@ const CaseStudies = () => {
                             </div>
 
                             {/* Title */}
-                            <div className="mt-6">
-                                <h3 className="text-2xl font-bold text-white uppercase tracking-wide group-hover:underline decoration-1 underline-offset-4">
+                            <div className="mt-6 flex justify-between items-center">
+                                <h3 className="text-2xl font-bold text-white uppercase tracking-wide group-hover:text-blue-400 transition-colors">
                                     {study.title}
                                 </h3>
+                                <Plus className="text-white/30 group-hover:text-white transition-colors" size={20} />
                             </div>
                         </div>
                     ))}
@@ -93,6 +107,123 @@ const CaseStudies = () => {
                     </button>
                 </div>
             </div>
+
+            {/* Detailed Modal */}
+            <AnimatePresence>
+                {selectedStudy && (
+                    <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
+                        {/* Backdrop */}
+                        <motion.div
+                            initial={{ opacity: 0 }}
+                            animate={{ opacity: 1 }}
+                            exit={{ opacity: 0 }}
+                            onClick={() => setSelectedStudy(null)}
+                            className="absolute inset-0 bg-black/90 backdrop-blur-sm"
+                        />
+
+                        {/* Modal Content */}
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.9, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 0.9, y: 20 }}
+                            className="relative w-full max-w-4xl bg-[#111] overflow-y-auto rounded-2xl border border-white/10 shadow-2xl flex flex-col max-h-[90vh] custom-scrollbar"
+                            style={{
+                                scrollbarWidth: 'thin',
+                                scrollbarColor: '#333 #111'
+                            }}
+                        >
+                            <style jsx global>{`
+                                .custom-scrollbar::-webkit-scrollbar {
+                                    width: 8px;
+                                }
+                                .custom-scrollbar::-webkit-scrollbar-track {
+                                    background: #111;
+                                    border-radius: 0 16px 16px 0;
+                                }
+                                .custom-scrollbar::-webkit-scrollbar-thumb {
+                                    background: #333;
+                                    border-radius: 10px;
+                                    border: 2px solid #111;
+                                }
+                                .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+                                    background: #444;
+                                }
+                            `}</style>
+
+                            {/* Close Button */}
+                            <button
+                                onClick={() => setSelectedStudy(null)}
+                                className="absolute top-6 right-6 z-50 p-2 bg-black/50 backdrop-blur-md text-white rounded-full hover:bg-white hover:text-black transition-colors border border-white/10"
+                            >
+                                <X size={24} />
+                            </button>
+
+                            {/* Image Section - Top Focus */}
+                            <div className="w-full relative aspect-video md:aspect-[21/9] bg-gray-900 border-b border-white/10">
+                                <Image
+                                    src={selectedStudy.image}
+                                    alt={selectedStudy.title}
+                                    fill
+                                    className="object-cover"
+                                    priority
+                                />
+                            </div>
+
+                            {/* Content Section - Bottom Detailed View */}
+                            <div className="w-full p-8 md:p-16">
+                                <div className="max-w-4xl mx-auto space-y-12">
+                                    <div className="space-y-4">
+                                        <div className="flex items-center gap-4">
+                                            <span className="bg-blue-600/20 text-blue-400 px-4 py-1 rounded-full font-bold uppercase tracking-widest text-[10px] border border-blue-500/20">
+                                                {selectedStudy.year} CASE STUDY
+                                            </span>
+                                        </div>
+                                        <h2 className="text-4xl md:text-6xl font-bold text-white uppercase tracking-tight leading-none">
+                                            {selectedStudy.title}
+                                        </h2>
+                                    </div>
+
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-12 py-12 border-y border-white/5">
+                                        <div className="space-y-2">
+                                            <p className="text-white/30 uppercase text-[10px] font-black tracking-[0.2em]">Industry</p>
+                                            <p className="text-white text-xl font-medium">{selectedStudy.industry}</p>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <p className="text-white/30 uppercase text-[10px] font-black tracking-[0.2em]">Services</p>
+                                            <p className="text-white text-xl font-medium">{selectedStudy.services}</p>
+                                        </div>
+                                        <div className="space-y-2">
+                                            <p className="text-white/30 uppercase text-[10px] font-black tracking-[0.2em]">Location</p>
+                                            <p className="text-white text-xl font-medium">{selectedStudy.location}</p>
+                                        </div>
+                                    </div>
+
+                                    <div className="space-y-6">
+                                        <p className="text-white/30 uppercase text-[10px] font-black tracking-[0.2em]">The Achievement</p>
+                                        <p className="text-white text-xl md:text-2xl leading-relaxed font-light first-letter:text-4xl first-letter:font-bold first-letter:text-blue-500 first-letter:mr-1">
+                                            {selectedStudy.achievement}
+                                        </p>
+                                    </div>
+
+                                    <div className="pt-10 flex flex-col sm:flex-row gap-4">
+                                        <button
+                                            onClick={() => setSelectedStudy(null)}
+                                            className="bg-white text-black px-12 py-5 rounded-full font-black uppercase text-xs tracking-[0.15em] hover:bg-blue-600 hover:text-white transition-all duration-500 shadow-xl"
+                                        >
+                                            Close Case Study
+                                        </button>
+                                        <button
+                                            className="bg-transparent border border-white/20 text-white px-12 py-5 rounded-full font-black uppercase text-xs tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-500"
+                                        >
+                                            View Full Project
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </motion.div>
+                    </div>
+                )}
+            </AnimatePresence>
         </section>
     );
 };
