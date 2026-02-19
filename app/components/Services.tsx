@@ -43,7 +43,7 @@ const Services = ({
                         <div key={service.id} className={`border-b ${dividerColor} last:border-b-0`}>
                             <button
                                 onClick={() => toggleService(service.id)}
-                                className="w-full py-8 flex items-center justify-between group focus:outline-none"
+                                className="w-full py-3 md:py-6 flex items-center justify-between group focus:outline-none"
                                 aria-expanded={openId === service.id}
                             >
                                 <span className={`text-2xl md:text-5xl font-bold uppercase whitespace-nowrap transition-colors duration-300 ${openId === service.id ? titleColor : `${inactiveTitleColor} group-hover:${titleColor}`}`}>
