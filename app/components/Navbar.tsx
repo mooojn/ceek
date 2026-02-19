@@ -37,7 +37,7 @@ const Navbar = () => {
             { name: 'Services', action: () => setIsServicesOpen(true) },
             // { name: 'Sectors', href: '/sectors' },
             { name: 'Locations', href: '/locations' },
-            { name: 'Case Studies', href: '/case-studies' },
+            { name: 'Portfolio', href: '/portfolio' },
             { name: 'About Us', href: '/about-us' },
           ].map((item) => (
             <li key={item.name}>
@@ -88,7 +88,7 @@ const Navbar = () => {
             {[
               { name: 'Services', action: () => { setIsServicesOpen(true); closeMobileMenu(); } },
               { name: 'Locations', href: '/locations' },
-              { name: 'Case Studies', href: '/case-studies' },
+              { name: 'Portfolio', href: '/portfolio' },
               { name: 'About Us', href: '/about-us' },
             ].map((item) => (
               <li key={item.name} className="border-b border-gray-100 pb-2">

@@ -8,8 +8,8 @@ const CaseStudyHeader = () => {
             <div className="max-w-7xl mx-auto">
                 {/* Back Link */}
                 <Link href="/case-studies" className="inline-flex items-center text-sm md:text-base text-gray-400 hover:text-white transition-colors mb-12">
-                     <ArrowLeft className="mr-2" size={20} />
-                     BACK
+                    <ArrowLeft className="mr-2" size={20} />
+                    BACK
                 </Link>
 
                 <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end gap-12">
@@ -31,7 +31,7 @@ const CaseStudyHeader = () => {
                         <div>
                             <div className="text-xs font-bold uppercase tracking-widest text-white mb-1">PROJECT LINK</div>
                             <Link href="/case-studies" className="text-gray-400 hover:text-white transition-colors inline-flex items-center lg:justify-end">
-                                Case Studies <ArrowRight className="ml-1" size={14} />
+                                Portfolio <ArrowRight className="ml-1" size={14} />
                             </Link>
                         </div>
                         <div>
