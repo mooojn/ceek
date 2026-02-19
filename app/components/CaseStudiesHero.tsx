@@ -7,7 +7,7 @@ const CaseStudiesHero = () => {
                 {/* Left: Text */}
                 <div>
                     <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold uppercase tracking-tighter leading-[0.9] text-black">
-                        Portfolio
+                        Services <br /> Portfolio
                     </h1>
                 </div>
 
