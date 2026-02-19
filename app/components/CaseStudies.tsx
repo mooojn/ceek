@@ -9,6 +9,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 interface CaseStudy {
     id: number;
     title: string;
+    slug: string;
     year: string;
     image: string;
     industry: string;
@@ -21,6 +22,7 @@ const caseStudies: CaseStudy[] = [
     {
         id: 1,
         title: "OPPSN ONTARIO",
+        slug: "oppsn-ontario",
         year: "2025",
         image: "/images/case-studies/c1.png",
         industry: "Organization",
@@ -31,6 +33,7 @@ const caseStudies: CaseStudy[] = [
     {
         id: 2,
         title: "REAL ESTATE",
+        slug: "real-estate",
         year: "2024",
         image: "/images/case-studies/c2.png",
         industry: "Real estate",
@@ -215,11 +218,13 @@ const CaseStudies = () => {
                                         >
                                             Close Case Study
                                         </button>
-                                        <button
-                                            className="w-full sm:w-auto bg-transparent border border-white/20 text-white px-8 md:px-12 py-4 md:py-5 rounded-full font-black uppercase text-[10px] md:text-xs tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-500"
-                                        >
-                                            View Full Project
-                                        </button>
+                                        <Link href={`/portfolio/${selectedStudy.slug}`}>
+                                            <button
+                                                className="w-full sm:w-auto bg-transparent border border-white/20 text-white px-8 md:px-12 py-4 md:py-5 rounded-full font-black uppercase text-[10px] md:text-xs tracking-[0.15em] hover:bg-white hover:text-black transition-all duration-500"
+                                            >
+                                                View Full Project
+                                            </button>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>

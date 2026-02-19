@@ -13,11 +13,11 @@ const CaseStudiesHero = () => {
 
                 {/* Right: Image */}
                 <div className="relative w-full h-[400px] md:h-[500px] lg:h-[600px] rounded-[40px] overflow-hidden">
-                    <img 
+                    {/* <img 
                         src="/images/case-studies/1.PNG" 
                         alt="Case Studies Hero" 
                         className="object-cover w-full h-full"
-                    />
+                    /> */}
                 </div>
             </div>
         </section>

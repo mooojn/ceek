@@ -20,10 +20,6 @@ export default function CaseStudiesPage() {
             {/* 3. Case Study Grid list */}
             <CaseStudyList />
 
-            {/* 4. Filter Component would be inside CaseStudyList or separate. 
-               The design shows filters above the grid.
-               For this implementation, it's inside CaseStudyList.
-            */}
 
             {/* 5. Work Together CTA */}
             <WorkTogether />

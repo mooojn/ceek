@@ -9,10 +9,10 @@ const FeaturedCaseStudy = () => {
                 <div className="flex flex-col lg:flex-row gap-12 lg:gap-24">
                     {/* Left: Image */}
                     <div className="relative w-full lg:w-2/3 aspect-[4/3] overflow-hidden group">
-                        <Link href="/case-studies/mogu-mogu">
-                            <img 
-                                src="/images/case-studies/2.PNG" 
-                                alt="Mogu Mogu Featured Case Study" 
+                        <Link href="/portfolio/oppsn-ontario">
+                            <img
+                                src="/images/case-studies/c1.png"
+                                alt="OPPSN Ontario Featured Case Study"
                                 className="object-cover w-full h-full transition-transform duration-700 group-hover:scale-105"
                             />
                             <div className="absolute bottom-8 right-8">
@@ -26,9 +26,9 @@ const FeaturedCaseStudy = () => {
                     {/* Right: Text */}
                     <div className="flex flex-col justify-between py-4 lg:w-1/3">
                         <div className="text-sm font-bold tracking-widest uppercase mb-4">FEATURED</div>
-                        
+
                         <div className="mt-auto">
-                            <h2 className="text-5xl md:text-6xl font-bold mb-6">Mogu Mogu</h2>
+                            <h2 className="text-5xl md:text-6xl font-bold mb-6">OPPSN Ontario</h2>
                         </div>
                     </div>
                 </div>
