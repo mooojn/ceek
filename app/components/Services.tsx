@@ -47,7 +47,7 @@ const Services = ({
                                 aria-expanded={openId === service.id}
                             >
                                 <span className={`text-2xl md:text-5xl font-bold uppercase whitespace-nowrap transition-colors duration-300 ${openId === service.id ? titleColor : `${inactiveTitleColor} group-hover:${titleColor}`}`}>
-                                    Get in touch
+                                    {service.title}
                                 </span>
                                 <div className={`${titleColor} transform transition-transform duration-300`}>
                                     {openId === service.id ? <Minus size={32} /> : <Plus size={32} />}
@@ -69,7 +69,7 @@ const Services = ({
                                             </p>
                                             <Link href={service.link}>
                                                 <button className={`${isLightBg ? 'bg-black text-white hover:opacity-80' : 'bg-white text-black hover:bg-gray-200'} px-8 py-3 rounded-full font-bold text-sm uppercase transition-colors`}>
-                                                    {service.title}
+                                                    Get in Touch
                                                 </button>
                                             </Link>
                                         </div>
