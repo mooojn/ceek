@@ -73,7 +73,7 @@ const Navbar = () => {
         <div className="md:hidden flex items-center">
           <button
             onClick={toggleMobileMenu}
-            className="text-black focus:outline-none p-2 font-bold text-sm tracking-widest uppercase"
+            className="text-black focus:outline-none p-2 font-light text-sm tracking-widest uppercase"
             aria-label="Toggle mobile menu"
           >
             {isMobileMenuOpen ? 'CLOSE' : 'MENU'}
