@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Image from 'next/image';
 import { Plus, X } from 'lucide-react';
+import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
 interface CaseStudy {
@@ -102,9 +103,11 @@ const CaseStudies = () => {
 
                 {/* Bottom CTA */}
                 <div className="mt-16 text-right">
-                    <button className="bg-white text-black px-8 py-3 rounded-full font-medium text-lg hover:bg-gray-200 hover:scale-105 transition-all duration-300">
-                        More Portoflio
-                    </button>
+                    <Link href="/portfolio">
+                        <button className="bg-white text-black px-8 py-3 rounded-full font-medium text-lg hover:bg-gray-200 hover:scale-105 transition-all duration-300">
+                            More Portoflio
+                        </button>
+                    </Link>
                 </div>
             </div>
 
