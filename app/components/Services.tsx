@@ -47,7 +47,7 @@ const Services = ({
                                 aria-expanded={openId === service.id}
                             >
                                 <span className={`text-2xl md:text-5xl font-bold uppercase whitespace-nowrap transition-colors duration-300 ${openId === service.id ? titleColor : `${inactiveTitleColor} group-hover:${titleColor}`}`}>
-                                    {service.title}
+                                    Get in touch
                                 </span>
                                 <div className={`${titleColor} transform transition-transform duration-300`}>
                                     {openId === service.id ? <Minus size={32} /> : <Plus size={32} />}
