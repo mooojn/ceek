@@ -200,7 +200,7 @@ export default function GetInTouch() {
         <Navbar />
         <div className="min-h-screen bg-gray-50 flex flex-col items-center justify-center p-6 pt-24">
           <div className="w-full max-w-3xl">
-            <h1 className="text-5xl md:text-6xl font-bold mb-12">Get in touch</h1>
+            <h1 className="text-5xl md:text-6xl font-bold mb-12 text-black">Get in touch</h1>
 
             <div className="bg-black rounded-2xl p-12 md:p-20 text-center animate-fadeIn">
               <div className="mb-6">
