@@ -103,7 +103,7 @@ const CaseStudies = () => {
                 {/* Bottom CTA */}
                 <div className="mt-16 text-right">
                     <button className="bg-white text-black px-8 py-3 rounded-full font-medium text-lg hover:bg-gray-200 hover:scale-105 transition-all duration-300">
-                        More Projects
+                        All Portoflio
                     </button>
                 </div>
             </div>
