@@ -62,7 +62,7 @@ export default async function PortfolioCaseStudyPage({ params }: PageProps) {
 
             <CaseStudyServices services={data.services} />
 
-            <MoreCeekClients />
+            {/* <MoreCeekClients /> */}
 
             <CTA
                 title="LET'S WORK TOGETHER"

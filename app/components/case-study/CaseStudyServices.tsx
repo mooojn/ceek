@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link';
 import { Plus } from 'lucide-react';
 
 interface CaseStudyServicesProps {
@@ -13,10 +14,10 @@ const CaseStudyServices = ({ services }: CaseStudyServicesProps) => {
 
                 <div className="flex flex-col">
                     {services.map((service, index) => (
-                        <div key={index} className="flex justify-between items-center py-8 border-t border-gray-700 group cursor-pointer hover:bg-[#222] transition-colors px-4 -mx-4">
+                        <Link href="/get-in-touch" key={index} className="flex justify-between items-center py-8 border-t border-gray-700 group cursor-pointer hover:bg-[#222] transition-colors px-4 -mx-4">
                             <h3 className="text-3xl md:text-5xl font-bold tracking-tight">{service}</h3>
                             <Plus className="text-white opacity-50 group-hover:opacity-100 transition-opacity" size={32} />
-                        </div>
+                        </Link>
                     ))}
                     <div className="border-t border-gray-700"></div>
                 </div>
