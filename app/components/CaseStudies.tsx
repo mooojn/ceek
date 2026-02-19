@@ -54,7 +54,7 @@ const CaseStudies = () => {
                 </div>
 
                 {/* Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl">
+                <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 max-w-5xl">
                     {caseStudies.map((study) => (
                         <div
                             key={study.id}
@@ -75,8 +75,8 @@ const CaseStudies = () => {
                                 <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/60" />
 
                                 {/* Year Label */}
-                                <div className="absolute top-6 right-6 z-10">
-                                    <span className="bg-black/50 backdrop-blur-md px-3 py-1 rounded-full text-white font-medium text-sm tracking-wider">
+                                <div className="absolute top-3 right-3 md:top-6 md:right-6 z-10">
+                                    <span className="bg-black/50 backdrop-blur-md px-2 py-0.5 md:px-3 md:py-1 rounded-full text-white font-medium text-[10px] md:text-sm tracking-wider">
                                         {study.year}
                                     </span>
                                 </div>
@@ -90,11 +90,11 @@ const CaseStudies = () => {
                             </div>
 
                             {/* Title */}
-                            <div className="mt-6 flex justify-between items-center">
-                                <h3 className="text-2xl font-bold text-white uppercase tracking-wide group-hover:text-blue-400 transition-colors">
+                            <div className="mt-3 md:mt-6 flex justify-between items-center px-1">
+                                <h3 className="text-sm sm:text-lg md:text-2xl font-bold text-white uppercase tracking-wide group-hover:text-blue-400 transition-colors">
                                     {study.title}
                                 </h3>
-                                <Plus className="text-white/30 group-hover:text-white transition-colors" size={20} />
+                                <Plus className="text-white/30 group-hover:text-white transition-colors" size={16} />
                             </div>
                         </div>
                     ))}
