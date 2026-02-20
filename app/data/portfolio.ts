@@ -22,6 +22,8 @@ export interface PortfolioData {
     stats: PortfolioStat[];
     bodySections: BodySection[];
     services: string[];
+    year: string;
+    achievement: string;
 }
 
 export const portfolioItems: PortfolioData[] = [
@@ -68,6 +70,8 @@ export const portfolioItems: PortfolioData[] = [
             },
         ],
         services: ["LEAD GENERATION", "PERFORMANCE MARKETING", "GOOGLE ADS"],
+        year: "2025",
+        achievement: "For OPPSN (Ontario), we developed and managed performance marketing campaigns that increased donations and raised from $2K to $10K in under 2 months, delivering measurable ROI through data-driven optimization.",
     },
     {
         slug: "real-estate",
@@ -112,6 +116,8 @@ export const portfolioItems: PortfolioData[] = [
             },
         ],
         services: ["LEAD GENERATION", "META ADVERTISING", "GOOGLE ADS"],
+        year: "2024",
+        achievement: "Executed high-converting real estate campaigns in a competitive market, generating qualified global leads and driving 50% inventory sales through Meta, Google, and multi-channel advertising.",
     },
 ];
 

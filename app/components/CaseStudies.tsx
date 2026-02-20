@@ -6,45 +6,10 @@ import { Plus, X } from 'lucide-react';
 import Link from 'next/link';
 import { motion, AnimatePresence } from 'framer-motion';
 
-interface CaseStudy {
-    id: number;
-    title: string;
-    slug: string;
-    year: string;
-    image: string;
-    industry: string;
-    services: string;
-    location: string;
-    achievement: string;
-}
-
-const caseStudies: CaseStudy[] = [
-    {
-        id: 1,
-        title: "OPPSN ONTARIO",
-        slug: "oppsn-ontario",
-        year: "2025",
-        image: "/images/case-studies/c1.png",
-        industry: "Organization",
-        services: "Lead Generation",
-        location: "USA, Canada",
-        achievement: "For OPPSN (Ontario), we developed and managed performance marketing campaigns that increased donations and raised from $2K to $10K in under 2 months, delivering measurable ROI through data-driven optimization."
-    },
-    {
-        id: 2,
-        title: "REAL ESTATE",
-        slug: "real-estate",
-        year: "2024",
-        image: "/images/case-studies/c2.png",
-        industry: "Real estate",
-        services: "Lead Generation",
-        location: "UAE, Dubai",
-        achievement: "Executed high-converting real estate campaigns in a competitive market, generating qualified global leads and driving 50% inventory sales through Meta, Google, and multi-channel advertising."
-    }
-];
+import { portfolioItems } from '@/app/data/portfolio';
 
 const CaseStudies = () => {
-    const [selectedStudy, setSelectedStudy] = useState<CaseStudy | null>(null);
+    const [selectedStudy, setSelectedStudy] = useState<any | null>(null);
 
     return (
         <section className="bg-[#1a1a1a] py-20 px-6 md:px-12 lg:px-20">
@@ -59,9 +24,9 @@ const CaseStudies = () => {
 
                 {/* Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 max-w-5xl">
-                    {caseStudies.map((study) => (
+                    {portfolioItems.map((study) => (
                         <div
-                            key={study.id}
+                            key={study.slug}
                             className="group relative cursor-pointer block"
                             onClick={() => setSelectedStudy(study)}
                         >
@@ -69,7 +34,7 @@ const CaseStudies = () => {
                             <div className="relative aspect-[16/10] overflow-hidden bg-gray-900 transition-all duration-300 group-hover:rounded-xl border border-white/10">
                                 {/* Image */}
                                 <Image
-                                    src={study.image}
+                                    src={study.heroImage}
                                     alt={study.title}
                                     fill
                                     className="object-cover transition-transform duration-500 group-hover:scale-105"
@@ -167,7 +132,7 @@ const CaseStudies = () => {
                             {/* Image Section - Top Focus */}
                             <div className="w-full relative aspect-[16/10] sm:aspect-video md:aspect-[21/9] bg-gray-900 border-b border-white/10">
                                 <Image
-                                    src={selectedStudy.image}
+                                    src={selectedStudy.heroImage}
                                     alt={selectedStudy.title}
                                     fill
                                     className="object-cover"
@@ -192,11 +157,11 @@ const CaseStudies = () => {
                                     <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-12 py-8 md:py-12 border-y border-white/5">
                                         <div className="space-y-1 md:space-y-2">
                                             <p className="text-white/30 uppercase text-[9px] md:text-[10px] font-black tracking-[0.2em]">Industry</p>
-                                            <p className="text-white text-lg md:text-xl font-medium">{selectedStudy.industry}</p>
+                                            <p className="text-white text-lg md:text-xl font-medium">{selectedStudy.clientType}</p>
                                         </div>
                                         <div className="space-y-1 md:space-y-2">
                                             <p className="text-white/30 uppercase text-[9px] md:text-[10px] font-black tracking-[0.2em]">Services</p>
-                                            <p className="text-white text-lg md:text-xl font-medium">{selectedStudy.services}</p>
+                                            <p className="text-white text-lg md:text-xl font-medium">{selectedStudy.services[0]}</p>
                                         </div>
                                         <div className="space-y-1 md:space-y-2">
                                             <p className="text-white/30 uppercase text-[9px] md:text-[10px] font-black tracking-[0.2em]">Location</p>
