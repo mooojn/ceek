@@ -87,7 +87,7 @@ export default function GetInTouch() {
     fullName: '',
     businessName: '',
     email: '',
-    countryCode: '+1',
+    countryCode: '+92',
     phoneNumber: '',
     websiteUrl: '',
     businessDescription: '',
@@ -130,16 +130,61 @@ export default function GetInTouch() {
     }
   };
 
+  const validateEmail = (email: string) => {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+  };
+
+  const validatePhone = (code: string, number: string) => {
+    const cleanNumber = number.replace(/\D/g, '');
+
+    switch (code) {
+      case '+92': // Pakistan
+        return cleanNumber.length === 10;
+      case '+1': // US/CA
+        return cleanNumber.length === 10;
+      case '+44': // UK
+        return cleanNumber.length >= 10 && cleanNumber.length <= 11;
+      default:
+        return cleanNumber.length >= 7;
+    }
+  };
+
   const handleNext = async () => {
-    // Check if current field is required and filled
-    if (currentQuestion.id === 'phone') {
-      if (!formData.phoneNumber.trim()) return;
+    setError(null);
+    const currentId = currentQuestion.id;
+
+    // Validation
+    if (currentId === 'email') {
+      if (!formData.email.trim()) {
+        setError('Email is required');
+        return;
+      }
+      if (!validateEmail(formData.email)) {
+        setError('Please enter a valid email address');
+        return;
+      }
+    } else if (currentId === 'phone') {
+      if (!formData.phoneNumber.trim()) {
+        setError('Phone number is required');
+        return;
+      }
+      if (!validatePhone(formData.countryCode, formData.phoneNumber)) {
+        let errorMsg = 'Please enter a valid phone number';
+        if (formData.countryCode === '+92') errorMsg = 'Pakistan phone numbers should be 10 digits';
+        else if (formData.countryCode === '+1') errorMsg = 'US/Canada phone numbers should be 10 digits';
+        setError(errorMsg);
+        return;
+      }
     } else if (
-      currentQuestion.id !== 'websiteUrl' &&
-      currentQuestion.id !== 'additionalComments'
+      currentId !== 'websiteUrl' &&
+      currentId !== 'additionalComments'
     ) {
-      const value = formData[currentQuestion.id as keyof FormData];
-      if (!value.trim()) return;
+      const value = formData[currentId as keyof FormData];
+      if (!value.trim()) {
+        setError('This field is required');
+        return;
+      }
     }
 
     setIsAnimating(true);
