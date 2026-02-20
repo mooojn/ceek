@@ -43,10 +43,10 @@ const CaseStudies = () => {
                                 {/* Overlay */}
                                 <div className="absolute inset-0 bg-black/20 transition-colors duration-300 group-hover:bg-black/60" />
 
-                                {/* Year Label */}
+                                {/* Client Label */}
                                 <div className="absolute top-3 right-3 md:top-6 md:right-6 z-10">
-                                    <span className="bg-black/50 backdrop-blur-md px-2 py-0.5 md:px-3 md:py-1 rounded-full text-white font-medium text-[10px] md:text-sm tracking-wider">
-                                        {study.year}
+                                    <span className="bg-black/50 backdrop-blur-md px-2 py-0.5 md:px-3 md:py-1 rounded-full text-white font-medium text-[10px] md:text-sm tracking-widest uppercase">
+                                        {study.client}
                                     </span>
                                 </div>
 
@@ -58,10 +58,10 @@ const CaseStudies = () => {
                                 </div>
                             </div>
 
-                            {/* Title */}
+                            {/* Client Type / Industry */}
                             <div className="mt-3 md:mt-6 flex justify-between items-center px-1">
                                 <h3 className="text-sm sm:text-lg md:text-2xl font-bold text-white uppercase tracking-wide group-hover:text-blue-400 transition-colors">
-                                    {study.title}
+                                    {study.clientType}
                                 </h3>
                                 <Plus className="text-white/30 group-hover:text-white transition-colors" size={16} />
                             </div>
