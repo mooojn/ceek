@@ -31,7 +31,7 @@ export const portfolioItems: PortfolioData[] = [
         slug: "oppsn-ontario",
         title: "OPPSN Ontario",
         client: "OPPSN Ontario",
-        clientType: "Organization",
+        clientType: "NEWS STATION",
         location: "USA, Canada",
         heroImage: "/images/case-studies/c1.png",
         introSubtitle: "OPPSN Ontario",
