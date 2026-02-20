@@ -58,7 +58,7 @@ const questions = [
     id: 'budget',
     label: 'What is your budget range?',
     placeholder: 'Type your answer here...',
-    type: 'text',
+    type: 'number',
   },
   {
     id: 'additionalComments',
@@ -184,6 +184,13 @@ export default function GetInTouch() {
       if (!value.trim()) {
         setError('This field is required');
         return;
+      }
+      if (currentId === 'budget') {
+        const numValue = parseFloat(value);
+        if (isNaN(numValue) || numValue <= 0) {
+          setError('Please enter a positive number');
+          return;
+        }
       }
     }
 
