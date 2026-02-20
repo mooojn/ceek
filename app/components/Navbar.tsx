@@ -4,10 +4,9 @@ import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
-import ServicesOverlay from './ServicesOverlay';
+
 
 const Navbar = () => {
-  const [isServicesOpen, setIsServicesOpen] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const toggleMobileMenu = () => {
@@ -34,27 +33,16 @@ const Navbar = () => {
         {/* Desktop Menu */}
         <ul className="hidden md:flex items-center gap-8 text-[#333333] font-medium text-base list-none">
           {[
-            { name: 'Services', action: () => setIsServicesOpen(true) },
-            // { name: 'Sectors', href: '/sectors' },
+            { name: 'Services', href: '/services' },
             { name: 'Locations', href: '/locations' },
             { name: 'Portfolio', href: '/portfolio' },
             { name: 'About Us', href: '/about-us' },
           ].map((item) => (
             <li key={item.name}>
-              {item.href ? (
-                <Link href={item.href} className="relative group transition-colors hover:text-black">
-                  <span>{item.name}</span>
-                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
-                </Link>
-              ) : (
-                <button
-                  onClick={item.action}
-                  className="relative group transition-colors hover:text-black cursor-pointer"
-                >
-                  <span>{item.name}</span>
-                  <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
-                </button>
-              )}
+              <Link href={item.href} className="relative group transition-colors hover:text-black">
+                <span>{item.name}</span>
+                <span className="absolute left-0 -bottom-1 w-0 h-[2px] bg-black transition-all duration-300 group-hover:w-full"></span>
+              </Link>
             </li>
           ))}
         </ul>
@@ -86,28 +74,19 @@ const Navbar = () => {
         <div className="fixed inset-0 bg-[#FAFAFA] z-30 flex flex-col p-6 pt-24 md:hidden overflow-y-auto">
           <ul className="flex flex-col gap-6 text-[#333333] font-medium text-lg list-none">
             {[
-              { name: 'Services', action: () => { setIsServicesOpen(true); closeMobileMenu(); } },
+              { name: 'Services', href: '/services' },
               { name: 'Locations', href: '/locations' },
               { name: 'Portfolio', href: '/portfolio' },
               { name: 'About Us', href: '/about-us' },
             ].map((item) => (
               <li key={item.name} className="border-b border-gray-100 pb-2">
-                {item.href ? (
-                  <Link
-                    href={item.href}
-                    className="block w-full"
-                    onClick={closeMobileMenu}
-                  >
-                    {item.name}
-                  </Link>
-                ) : (
-                  <button
-                    onClick={item.action}
-                    className="block w-full text-left"
-                  >
-                    {item.name}
-                  </button>
-                )}
+                <Link
+                  href={item.href}
+                  className="block w-full"
+                  onClick={closeMobileMenu}
+                >
+                  {item.name}
+                </Link>
               </li>
             ))}
             <li className="mt-4">
@@ -123,10 +102,7 @@ const Navbar = () => {
         </div>
       )}
 
-      {/* Services Overlay */}
-      {isServicesOpen && (
-        <ServicesOverlay onClose={() => setIsServicesOpen(false)} />
-      )}
+
     </>
   );
 };
