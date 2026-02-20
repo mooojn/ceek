@@ -7,9 +7,10 @@ interface CaseStudyHeaderProps {
     client: string;
     clientType: string;
     location: string;
+    services: string[];
 }
 
-const CaseStudyHeader = ({ title, client, clientType, location }: CaseStudyHeaderProps) => {
+const CaseStudyHeader = ({ title, client, clientType, location, services }: CaseStudyHeaderProps) => {
     return (
         <section className="bg-[#111111] text-white pt-32 pb-20 px-6 md:px-12 lg:px-20">
             <div className="max-w-7xl mx-auto">
@@ -35,11 +36,11 @@ const CaseStudyHeader = ({ title, client, clientType, location }: CaseStudyHeade
                             <div className="text-xs font-bold uppercase tracking-widest text-white mb-1">CLIENT TYPE</div>
                             <div className="text-gray-400">{clientType}</div>
                         </div>
-                        <div>
-                            <div className="text-xs font-bold uppercase tracking-widest text-white mb-1">PROJECT LINK</div>
-                            <Link href="/portfolio" className="text-gray-400 hover:text-white transition-colors inline-flex items-center lg:justify-end">
-                                Portfolio <ArrowRight className="ml-1" size={14} />
-                            </Link>
+                        <div className="col-span-2 md:col-span-1">
+                            <div className="text-xs font-bold uppercase tracking-widest text-white mb-1">SERVICES</div>
+                            <div className="text-gray-400 text-xs md:text-sm">
+                                {services[0]}
+                            </div>
                         </div>
                         <div>
                             <div className="text-xs font-bold uppercase tracking-widest text-white mb-1">LOCATION</div>

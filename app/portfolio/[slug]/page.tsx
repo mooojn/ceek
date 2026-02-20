@@ -36,6 +36,7 @@ export default async function PortfolioCaseStudyPage({ params }: PageProps) {
                 client={data.client}
                 clientType={data.clientType}
                 location={data.location}
+                services={data.services}
             />
 
             {/* Hero Image - Full Width */}
