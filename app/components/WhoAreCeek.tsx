@@ -15,7 +15,7 @@ const WhoAreCeek = () => {
                             Digital Marketing Agency
                         </p>
                         <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold text-black leading-tight tracking-tight">
-                            Who Are Marketo360
+                            We are Marketo360
                         </h2>
                     </div>
 
