@@ -1,15 +1,5 @@
 import React from 'react';
-
-const logos = [
-  { name: "S'MORE", id: 1 },
-  { name: "deliciously ella", id: 2 },
-  { name: "DAME", id: 3 },
-  { name: "MOGU MOGU", id: 4 },
-  { name: "LAVAZZA", id: 5 },
-  { name: "The Body Shop", id: 6 },
-  { name: "Tinder", id: 7 },
-  { name: "Pantene", id: 8 },
-];
+import { clientLogos } from '../data/clients';
 
 const ClientLogos = () => {
   return (
@@ -28,26 +18,35 @@ const ClientLogos = () => {
           <div className="flex animate-scroll whitespace-nowrap">
             {/* First Set of Logos */}
             <div className="flex items-center space-x-8 md:space-x-16 mx-4 md:mx-8">
-              {logos.map((logo) => (
-                <div key={logo.id} className="text-2xl md:text-4xl font-bold text-black opacity-60 hover:opacity-100 transition-opacity cursor-default font-serif uppercase tracking-wider">
-                  {logo.name}
-                </div>
+              {clientLogos.map((logo) => (
+                <img
+                  key={logo.id}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-20 md:h-32 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity flex-shrink-0"
+                />
               ))}
             </div>
             {/* Duplicate Set for Loop */}
             <div className="flex items-center space-x-8 md:space-x-16 mx-4 md:mx-8">
-              {logos.map((logo) => (
-                <div key={`dup-${logo.id}`} className="text-2xl md:text-4xl font-bold text-black opacity-60 hover:opacity-100 transition-opacity cursor-default font-serif uppercase tracking-wider">
-                  {logo.name}
-                </div>
+              {clientLogos.map((logo) => (
+                <img
+                  key={`dup-${logo.id}`}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-20 md:h-32 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity flex-shrink-0"
+                />
               ))}
             </div>
             {/* Triplicate Set for Loop */}
             <div className="flex items-center space-x-8 md:space-x-16 mx-4 md:mx-8">
-              {logos.map((logo) => (
-                <div key={`tri-${logo.id}`} className="text-2xl md:text-4xl font-bold text-black opacity-60 hover:opacity-100 transition-opacity cursor-default font-serif uppercase tracking-wider">
-                  {logo.name}
-                </div>
+              {clientLogos.map((logo) => (
+                <img
+                  key={`tri-${logo.id}`}
+                  src={logo.src}
+                  alt={logo.alt}
+                  className="h-20 md:h-32 w-auto object-contain opacity-60 hover:opacity-100 transition-opacity flex-shrink-0"
+                />
               ))}
             </div>
           </div>
