@@ -24,7 +24,7 @@ const CaseStudies = () => {
 
                 {/* Grid */}
                 <div className="grid grid-cols-2 md:grid-cols-2 gap-4 md:gap-8 max-w-5xl">
-                    {portfolioItems.map((study) => (
+                    {portfolioItems.slice(0, 2).map((study) => (
                         <div
                             key={study.slug}
                             className="group relative cursor-pointer block"
