@@ -55,12 +55,12 @@ const Footer = () => {
                         <ul className="space-y-4 mb-8">
                             <li>
                                 <a
-                                    href="https://wa.me/+971552038250"
+                                    href="https://wa.me/+923117580007"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                     className="text-gray-400 hover:text-white transition-colors block"
                                 >
-                                    +971 552038250
+                                    +92 311 7580007
                                 </a>
                             </li>
                             <li>

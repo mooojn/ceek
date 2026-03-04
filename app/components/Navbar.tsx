@@ -34,7 +34,7 @@ const Navbar = () => {
         <ul className="hidden md:flex items-center gap-8 text-[#333333] font-medium text-base list-none">
           {[
             { name: 'Services', href: '/services' },
-            { name: 'Locations', href: '/locations' },
+            // { name: 'Locations', href: '/locations' },
             { name: 'Portfolio', href: '/portfolio' },
             { name: 'About Us', href: '/about-us' },
           ].map((item) => (
@@ -75,7 +75,7 @@ const Navbar = () => {
           <ul className="flex flex-col gap-6 text-[#333333] font-medium text-lg list-none">
             {[
               { name: 'Services', href: '/services' },
-              { name: 'Locations', href: '/locations' },
+              // { name: 'Locations', href: '/locations' },
               { name: 'Portfolio', href: '/portfolio' },
               { name: 'About Us', href: '/about-us' },
             ].map((item) => (
