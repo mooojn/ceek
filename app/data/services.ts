@@ -32,8 +32,8 @@ export const services: Service[] = [
     },
     {
         id: 5,
-        title: "INFLUENCER",
-        description: "We connect your brand with credible influencers who genuinely resonate with your target audience. Through authentic collaborations, we amplify your message and build trust at scale. Influence becomes more than visibility — it becomes measurable impact.",
+        title: "GMB / MERCHANT CENTER",
+        description: "We optimize your Google My Business and Merchant Center profiles so your listings stand out in local search and shopping results. This attracts high-intent traffic to your storefront or product pages and turns local interest into sales.",
         link: "get-in-touch"
     },
     {
@@ -50,14 +50,32 @@ export const services: Service[] = [
     },
     {
         id: 8,
+        title: "E-COMMERCE SOLUTIONS",
+        description: "From intuitive storefronts to secure checkout flows, we build e-commerce platforms that feel seamless and scale with demand. The result is higher conversion, smoother operations, and stronger customer loyalty.",
+        link: "get-in-touch"
+    },
+    {
+        id: 9,
+        title: "LEAD GENERATION",
+        description: "We attract and qualify the right leads with targeted campaigns and smart funnel design. Data-driven optimization and personalized outreach turn interest into real sales opportunities.",
+        link: "get-in-touch"
+    },
+    {
+        id: 10,
         title: "DIGITAL PR",
         description: "We elevate your brand reputation through strategic digital PR and media placements. By positioning your business on trusted platforms, we strengthen credibility and expand your reach. Visibility backed by authority builds lasting brand power.",
         link: "get-in-touch"
     },
     {
-        id: 9,
+        id: 11,
         title: "GRAPHIC DESIGN",
         description: "We design visuals that communicate clearly and confidently. Every creative is built to reflect your brand's identity and connect with your audience. Simple. Strategic. Memorable.",
+        link: "get-in-touch"
+    },
+    {
+        id: 12,
+        title: "WEBSITE DEVELOPMENT",
+        description: "We build fast, responsive websites that look sharp and convert. Clean design, clear messaging, and solid performance give your brand a reliable home online.",
         link: "get-in-touch"
     }
 ];
